@@ -2899,6 +2899,8 @@ async function submitWarmup(registryKey, taId, fbId) {
       </div>
       <div>${bodyHtml}</div>`;
     saveSession('chart', chartType + ' warm-up', result);
+    // Tự động nộp lên Sheets cho giáo viên xem — không cần học viên bấm thêm
+    submitToSheets(text, score + '/100', chartType + '-warmup', chartType + ' chart warm-up', 'chart');
   } catch(e) {
     fb.innerHTML = `<div style="color:#A32D2D;font-size:12px;padding:8px;background:#FCEBEB;border-radius:6px;border:1px solid #E24B4A">
       ⚠️ <strong>Lỗi:</strong> ${e.message}
