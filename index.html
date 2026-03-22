@@ -1,0 +1,2958 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive English Coach — for Bankers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f7f4ee;
+  color: #0f1f3d;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── DESIGN TOKENS ────────────────────────────── */
+:root {
+  --navy:       #0f1f3d;
+  --navy-mid:   #1a3260;
+  --navy-soft:  #243b5e;
+  --gold:       #c9972a;
+  --gold-light: #f0c96a;
+  --gold-pale:  rgba(201,151,42,0.08);
+  --cream:      #f7f4ee;
+  --surface:    #ffffff;
+  --slate:      #4a5568;
+  --muted:      #8a95a3;
+  --border:     rgba(201,151,42,0.18);
+  --border-mid: rgba(15,31,61,0.12);
+  --radius:     12px;
+  --radius-sm:  8px;
+  --shadow:     0 2px 20px rgba(15,31,61,0.07);
+  --shadow-md:  0 6px 32px rgba(15,31,61,0.11);
+}
+
+/* ── SCROLLBAR ────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,151,42,0.25); border-radius: 3px; }
+
+/* ── HEADER ───────────────────────────────────── */
+.header {
+  background: var(--navy);
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(201,151,42,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--gold-light);
+  letter-spacing: 0.3px;
+}
+.logo em {
+  font-style: normal;
+  color: rgba(255,255,255,0.45);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+}
+.header-right { display: flex; align-items: center; gap: 10px; }
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #1D9E75;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.header-badge {
+  background: rgba(201,151,42,0.14);
+  border: 1px solid rgba(201,151,42,0.3);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.4px;
+}
+
+/* ── LAYOUT ───────────────────────────────────── */
+.app-body {
+  display: flex;
+  height: calc(100vh - 58px);
+  overflow: hidden;
+}
+
+/* ── SIDEBAR ──────────────────────────────────── */
+.sidebar {
+  width: 224px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.sidebar-logo-area {
+  padding: 20px 18px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-logo-area p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.sidebar-section-label {
+  padding: 14px 18px 4px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+  color: var(--slate);
+  font-size: 13px;
+  font-weight: 400;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+  user-select: none;
+}
+.nav-item:hover { background: var(--gold-pale); color: var(--navy); }
+.nav-item.active {
+  background: var(--gold-pale);
+  color: var(--navy);
+  border-left-color: var(--gold);
+  font-weight: 500;
+}
+.nav-icon { font-size: 15px; flex-shrink: 0; }
+.nav-badge {
+  margin-left: auto;
+  background: var(--navy);
+  color: white;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.sidebar-footer {
+  margin-top: auto;
+  padding: 16px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.sidebar-footer a { color: var(--gold); text-decoration: none; }
+.sidebar-footer a:hover { text-decoration: underline; }
+
+/* ── MAIN ─────────────────────────────────────── */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+}
+
+/* ── SCREENS ──────────────────────────────────── */
+.screen { display: none; animation: fadeIn 0.2s ease; }
+.screen.active { display: block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── PAGE TITLES ──────────────────────────────── */
+.page-header { margin-bottom: 22px; }
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.page-sub { font-size: 13px; color: var(--muted); }
+
+/* ── CARDS ────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-icon { font-size: 15px; }
+
+/* ── SCENARIO GRID ────────────────────────────── */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 12px;
+}
+.scenario-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.scenario-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 18px rgba(201,151,42,0.13);
+  transform: translateY(-1px);
+}
+.scenario-card.selected {
+  border-color: var(--gold);
+  background: var(--gold-pale);
+}
+.s-emoji { font-size: 22px; margin-bottom: 8px; display: block; }
+.s-name { font-weight: 500; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
+.s-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.s-week {
+  position: absolute; top: 10px; left: 10px;
+  font-size: 9px; padding: 2px 6px;
+  border-radius: 8px; font-weight: 600;
+  background: rgba(15,31,61,0.08); color: var(--muted);
+  letter-spacing: .4px;
+}
+.scenario-card.locked {
+  opacity: 0.5; cursor: not-allowed;
+  background: rgba(0,0,0,0.02);
+  border-style: dashed;
+}
+.scenario-card.locked:hover { transform: none; box-shadow: none; border-color: var(--border); }
+.s-badge {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 10px; padding: 2px 7px;
+  border-radius: 10px; font-weight: 500;
+}
+.b-speaking { background: rgba(15,110,86,0.1); color: #0f6e56; }
+.b-writing  { background: rgba(83,74,183,0.1);  color: #534AB7; }
+.b-both     { background: rgba(201,151,42,0.1); color: #854F0B; }
+
+/* ── PROMPT BOX ───────────────────────────────── */
+.prompt-box {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.prompt-box::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(201,151,42,0.1);
+  pointer-events: none;
+}
+.prompt-label {
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.prompt-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+}
+.prompt-task {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+}
+
+/* ── PHRASE BANK ──────────────────────────────── */
+.phrase-bank { display: flex; flex-wrap: wrap; gap: 7px; }
+.phrase-chip {
+  background: var(--gold-pale);
+  border: 1px solid rgba(201,151,42,0.22);
+  color: #854F0B;
+  font-size: 12px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.phrase-chip:hover {
+  background: rgba(201,151,42,0.16);
+  border-color: var(--gold);
+}
+
+/* ── INPUT AREA ───────────────────────────────── */
+.input-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.input-toolbar {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fafaf8;
+}
+.toolbar-label { font-size: 12px; color: var(--muted); }
+.toolbar-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px 9px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.toolbar-btn:hover { background: rgba(0,0,0,0.06); color: var(--navy); }
+.toolbar-btn.tb-active { background: var(--navy); color: white; }
+.response-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: vertical;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: transparent;
+  min-height: 100px;
+  line-height: 1.75;
+}
+.response-textarea::placeholder { color: var(--muted); }
+.wc-display { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--navy); }
+.wc-hint { font-size: 12px; color: var(--muted); }
+
+/* ── BUTTONS ──────────────────────────────────── */
+.btn-row { display: flex; gap: 10px; margin-bottom: 18px; }
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.btn-primary { background: var(--navy); color: white; flex: 1; }
+.btn-primary:hover { background: var(--navy-mid); }
+.btn-gold { background: var(--gold); color: white; flex: 1; }
+.btn-gold:hover { background: #b8871f; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--slate);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--navy); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── LOADING ──────────────────────────────────── */
+.loading {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.loading.on { display: flex; }
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: bop 1s infinite;
+}
+.dot:nth-child(2){ animation-delay:.15s }
+.dot:nth-child(3){ animation-delay:.3s }
+@keyframes bop {
+  0%,60%,100%{ transform:translateY(0); opacity:.4 }
+  30%{ transform:translateY(-5px); opacity:1 }
+}
+
+/* ── FEEDBACK ─────────────────────────────────── */
+.feedback-box {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-top: 4px;
+  box-shadow: var(--shadow);
+}
+.feedback-box.on { display: block; animation: fadeIn 0.3s ease; }
+.fb-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.score-ring {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600;
+  flex-shrink: 0;
+  text-align: center; line-height: 1.2;
+}
+.score-hi  { border-color:#1D9E75; color:#085041; background:#E1F5EE; }
+.score-mid { border-color:#BA7517; color:#633806; background:#FAEEDA; }
+.score-lo  { border-color:#E24B4A; color:#791F1F; background:#FCEBEB; }
+.fb-meta-title { font-size: 14px; font-weight: 500; color: var(--navy); }
+.fb-meta-sub   { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.fb-body { font-size: 13px; line-height: 1.8; color: var(--slate); }
+.fb-section { margin-bottom: 14px; }
+.fb-section-label {
+  font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .9px;
+  color: var(--muted); margin-bottom: 5px;
+}
+.fb-better { color: #0F6E56; font-weight: 500; }
+.fb-worse  { color: #A32D2D; font-weight: 500; }
+
+/* ── MODE SELECTOR (Combo) ────────────────────── */
+.mode-selector { display: flex; gap: 8px; margin-bottom: 16px; }
+.mode-btn {
+  flex: 1; padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--slate);
+  transition: all 0.2s;
+  text-align: center;
+}
+.mode-btn:hover { border-color: var(--gold); color: var(--navy); }
+.mode-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+.mode-icon { font-size: 16px; display: block; margin-bottom: 4px; }
+
+/* ── STATS (Progress) ─────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.stat-lbl { font-size: 12px; color: var(--muted); }
+
+/* ── HISTORY ──────────────────────────────────── */
+.history-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.history-item:last-child { border-bottom: none; }
+.h-icon { font-size: 16px; flex-shrink: 0; }
+.h-name { font-size: 13px; font-weight: 500; color: var(--navy); }
+.h-meta { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.h-score { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--gold); }
+.empty-state {
+  text-align: center; padding: 30px 0;
+  color: var(--muted); font-size: 13px;
+}
+
+/* ── PHRASE LIBRARY ───────────────────────────── */
+.phrase-lib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.phrase-lib-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.ph-en { font-size: 13px; color: var(--navy); }
+.ph-vi { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.ph-cat {
+  display: inline-block; font-size: 10px; font-weight: 500;
+  padding: 2px 7px; border-radius: 10px; margin-top: 4px;
+}
+.ph-cat-c { background: rgba(24,95,165,0.08); color: #185FA5; }
+.ph-cat-e { background: rgba(83,74,183,0.08); color: #534AB7; }
+.ph-cat-s { background: rgba(15,110,86,0.08); color: #0F6E56; }
+.ph-cat-m { background: rgba(201,151,42,0.1); color: #854F0B; }
+
+/* ── API KEY SETUP ────────────────────────────── */
+.setup-banner {
+  background: #FAEEDA;
+  border: 1px solid #EF9F27;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.setup-banner.hidden { display: none; }
+.setup-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.setup-text { flex: 1; }
+.setup-text strong { display: block; font-size: 13px; font-weight: 500; color: #633806; margin-bottom: 4px; }
+.setup-text p { font-size: 12px; color: #854F0B; line-height: 1.6; }
+.setup-input-row { display: flex; gap: 8px; margin-top: 10px; }
+.setup-input {
+  flex: 1; padding: 8px 12px;
+  border: 1px solid #EF9F27; border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  color: var(--navy); background: white; outline: none;
+}
+.setup-input:focus { border-color: var(--gold); }
+.setup-save {
+  padding: 8px 16px;
+  background: #854F0B; color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  cursor: pointer;
+}
+.setup-save:hover { background: #633806; }
+
+/* ── MIC BUTTON ───────────────────────────────── */
+@keyframes micPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(226,75,74,0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(226,75,74,0); }
+}
+.mic-recording {
+  background: rgba(226,75,74,0.12) !important;
+  border-color: #E24B4A !important;
+  color: #E24B4A !important;
+  animation: micPulse 1.2s infinite;
+}
+.mic-recording span { color: #E24B4A; }
+
+.s-diff { font-size:9px;font-weight:600;padding:1px 5px;border-radius:6px;vertical-align:middle;margin-left:4px;text-transform:uppercase;letter-spacing:.3px; }
+.s-diff-foundation { background:rgba(29,158,117,0.12);color:#1D9E75; }
+.s-diff-intermediate { background:rgba(186,117,23,0.12);color:#BA7517; }
+.s-diff-advanced { background:rgba(226,75,74,0.12);color:#E24B4A; }
+.vocab-reg { display:inline-block;font-size:9px;font-weight:600;padding:1px 5px;border-radius:8px;margin-left:5px;background:rgba(201,151,42,0.12);color:var(--gold);text-transform:uppercase;letter-spacing:.4px;vertical-align:middle; }
+.error-item { background:rgba(0,0,0,0.04);border-radius:var(--radius-sm);padding:10px 13px;border-left:3px solid rgba(226,75,74,0.4); }
+.err-label { font-size:10px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;margin-bottom:3px; }
+.err-wrong-lbl { color:#E24B4A; }
+.err-right-lbl { color:#1D9E75;margin-top:6px; }
+.err-text { font-size:12px;font-family:'DM Mono',monospace;line-height:1.6;padding:3px 0; }
+.err-wrong-text { color:#E24B4A; }
+.err-right-text { color:#1D9E75; }
+.err-why { font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.55;font-style:italic; }
+.followup-item { display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border); }
+.followup-item:last-child { border-bottom:none; }
+.followup-num { font-family:'DM Mono',monospace;font-size:10px;background:var(--navy);color:var(--gold-light);padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px; }
+.followup-text { font-size:13px;color:var(--slate);line-height:1.6; }
+.task-hint { font-size:11.5px;color:#854F0B;margin-top:6px;line-height:1.55;background:rgba(201,151,42,0.06);padding:5px 8px;border-radius:4px; }
+/* ── CHART COMMENTARY COMPONENTS ─────────────── */
+.chart-tab-row {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.chart-tab-btn {
+  padding: 8px 16px; border-radius: 20px; border: 1.5px solid var(--border);
+  background: var(--surface); color: var(--slate); font-family: 'DM Sans',sans-serif;
+  font-size: 12px; font-weight: 500; cursor: pointer; transition: all .15s;
+  white-space: nowrap;
+}
+.chart-tab-btn:hover { border-color: var(--gold); color: var(--navy); }
+.chart-tab-btn.active {
+  background: var(--navy); border-color: var(--navy); color: white;
+}
+.canvas-wrap {
+  position: relative; width: 100%; height: 220px; margin-bottom: 12px;
+}
+.canvas-wrap canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
+.chart-subtitle { font-size: 12px; color: var(--muted); margin: -6px 0 12px; }
+.chart-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--slate); }
+.legend-line { display: inline-block; width: 22px; height: 3px; border-radius: 2px; }
+.legend-dot  { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.chart-insight {
+  background: var(--gold-pale); border: 1px solid rgba(201,151,42,0.2);
+  border-radius: var(--radius-sm); padding: 9px 12px;
+  font-size: 12px; color: var(--slate); line-height: 1.6; margin-top: 10px;
+}
+.chart-insight strong { color: var(--navy); }
+/* Data table */
+.chart-data-table { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.dt-header {
+  display: grid; grid-template-columns: var(--dt-cols, 1fr 1fr 1fr 1fr);
+  padding: 7px 12px; background: var(--navy);
+  font-size: 10px; font-weight: 500; letter-spacing: .7px;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.dt-row {
+  display: grid; grid-template-columns: var(--dt-cols, 1fr 1fr 1fr 1fr);
+  padding: 7px 12px; font-size: 12px; color: var(--slate);
+  border-top: 1px solid var(--border); align-items: center;
+  transition: background .1s;
+}
+.dt-row:hover { background: var(--gold-pale); }
+.dt-highlight { background: rgba(201,151,42,0.06) !important; font-weight: 500; }
+.dt-good  { color: #1D9E75; font-weight: 500; }
+.dt-warn  { color: #E24B4A; font-weight: 500; }
+.dt-tag   { font-size: 10px; font-weight: 600; }
+.dt-note  { font-size: 11px; color: var(--muted); font-style: italic; }
+/* KPI row for dual chart */
+.kpi-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;
+}
+.kpi-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px 14px; text-align: center;
+}
+.kpi-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+.kpi-value { font-size: 22px; font-weight: 600; font-family: 'Playfair Display',serif; line-height: 1.1; margin-bottom: 3px; }
+.kpi-sub   { font-size: 10px; color: var(--muted); }
+/* Pie layout */
+.pie-layout { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.pie-legend-box { flex: 1; min-width: 140px; }
+.pie-legend-box > div { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+
+/* ── RESPONSIVE — MOBILE FIRST ────────────────── */
+@media (max-width: 768px) {
+  /* Sidebar hidden on mobile */
+  .sidebar { display: none; }
+  .app-body { height: auto; overflow: visible; }
+  .main { padding: 14px 16px; overflow-y: visible; height: auto; }
+
+  /* Header compact */
+  .header { padding: 0 16px; height: 50px; }
+  .logo { font-size: 15px; }
+  .logo em { display: none; }
+  .header-badge { display: none; }
+
+  /* Page titles */
+  .page-title { font-size: 20px; }
+
+  /* Scenario grid: 1 column */
+  .scenario-grid { grid-template-columns: 1fr !important; }
+
+  /* Metric rows */
+  .metric-row { grid-template-columns: 100px 1fr 48px; gap: 7px; }
+  .metric-label { font-size: 10px; }
+
+  /* Stats grid: 2 cols */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* KPI row: stack */
+  .kpi-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .kpi-value { font-size: 18px; }
+  .kpi-card  { padding: 10px 8px; }
+
+  /* Pie layout: stack */
+  .pie-layout { flex-direction: column; }
+  .canvas-wrap { height: 180px; }
+
+  /* Data table: show fewer columns on very small */
+  .dt-header, .dt-row { padding: 6px 8px; font-size: 11px; }
+
+  /* Buttons */
+  .btn { padding: 10px 14px; font-size: 13px; }
+  .btn-row { flex-wrap: wrap; }
+
+  /* Canvas charts */
+  .canvas-wrap { height: 200px; }
+
+  /* Chart tabs */
+  .chart-tab-btn { padding: 7px 12px; font-size: 11px; }
+
+  /* Vocab grid */
+  .vocab-grid { flex-direction: column; }
+  .vocab-card { max-width: 100%; }
+
+  /* Compare entity */
+  .compare-entity-label { font-size: 10px; }
+
+  /* Mode selector */
+  .mode-selector { flex-direction: column; }
+  .mode-btn { padding: 10px; }
+
+  /* Input toolbar */
+  .input-toolbar { flex-wrap: wrap; gap: 6px; }
+
+  /* Mic wrap */
+  #sp-mic-wrap { margin-left: 0 !important; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 12px; }
+  .card { padding: 14px; }
+  .kpi-row { grid-template-columns: 1fr; gap: 8px; }
+  .kpi-value { font-size: 24px; }
+  .canvas-wrap { height: 180px; }
+  .scenario-chart-wrap { padding: 12px; }
+  /* Metric rows narrower */
+  .metric-row { grid-template-columns: 90px 1fr 44px; }
+}
+
+/* ── MOBILE NAV BAR (bottom) ──────────────────── */
+.mobile-nav {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: var(--navy); border-top: 1px solid rgba(201,151,42,0.2);
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+}
+.mobile-nav-items {
+  display: flex; justify-content: space-around; align-items: center;
+}
+.mob-nav-item {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 4px 8px; cursor: pointer; border-radius: 8px;
+  transition: background .15s; min-width: 56px;
+}
+.mob-nav-item:hover, .mob-nav-item.active { background: rgba(201,151,42,0.12); }
+.mob-nav-icon { font-size: 18px; }
+.mob-nav-label { font-size: 9px; color: rgba(255,255,255,0.55); letter-spacing: .3px; font-weight: 500; }
+.mob-nav-item.active .mob-nav-label { color: var(--gold-light); }
+@media (max-width: 768px) {
+  .mobile-nav { display: block; }
+  .main { padding-bottom: 80px; }
+}
+
+/* ── VOCAB CARDS ──────────────────────────────── */
+.vocab-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.vocab-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 13px;
+  min-width: 160px;
+  flex: 1;
+  max-width: 240px;
+}
+.vocab-term { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.vocab-abbr { color: var(--gold); }
+.vocab-vi { font-size: 11.5px; color: var(--slate); line-height: 1.5; }
+
+/* ── SCENARIO MINI CHART ──────────────────────── */
+.scenario-chart-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.scenario-chart-title {
+  font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .9px;
+  color: var(--muted); margin-bottom: 12px;
+}
+.chart-note { font-size: 10px; color: var(--muted); margin-top: 8px; font-style: italic; }
+
+/* ── METRIC ROWS (thay bar-group / spider / compare) ── */
+.metric-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 56px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+.metric-row:last-child { margin-bottom: 0; }
+.metric-label {
+  font-size: 11px; color: var(--slate);
+  line-height: 1.3; text-align: right;
+}
+.metric-track {
+  height: 10px; background: rgba(0,0,0,0.06);
+  border-radius: 5px; overflow: visible;
+  position: relative;
+}
+.metric-bar {
+  height: 100%; border-radius: 5px;
+  transition: width .5s ease;
+  position: relative;
+}
+/* Target marker — dọc trên track */
+.metric-target-marker {
+  position: absolute; top: -3px; bottom: -3px;
+  width: 2px; border-radius: 1px;
+  background: rgba(0,0,0,0.25);
+}
+.metric-values {
+  font-size: 11px; font-weight: 500;
+  color: var(--navy); white-space: nowrap; text-align: right;
+}
+.metric-target-lbl {
+  font-size: 10px; color: var(--muted); font-weight: 400;
+}
+/* Green = good, Red = needs attention */
+.bar-good  { background: linear-gradient(90deg, #1D9E75, #26c48f); }
+.bar-warn  { background: linear-gradient(90deg, #E24B4A, #f07070); }
+.bar-neu   { background: linear-gradient(90deg, #185FA5, #3a7fd4); }
+
+/* ── TIMELINE ── */
+.tl-row { display:flex;align-items:flex-start;gap:10px;margin-bottom:8px; }
+.tl-row:last-child { margin-bottom:0; }
+.tl-dot-wrap { display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:14px; }
+.tl-dot-sc { width:12px;height:12px;border-radius:50%;border:2px solid;flex-shrink:0; }
+.tl-dot-sc.ok      { background:#e1f5ee;border-color:#1D9E75; }
+.tl-dot-sc.warn    { background:#faeeda;border-color:#BA7517; }
+.tl-dot-sc.bad     { background:#fcebeb;border-color:#E24B4A; }
+.tl-dot-sc.pending { background:#f0f0f0;border-color:#aaa; }
+.tl-line-sc { width:2px;flex:1;min-height:10px;background:var(--border);margin-top:2px; }
+.tl-date  { font-size:11px;color:var(--muted);white-space:nowrap;min-width:60px;flex-shrink:0;padding-top:1px; }
+.tl-label { font-size:12px;color:var(--navy);line-height:1.45; }
+
+/* ── COMPARE (2-entity side-by-side labels) ── */
+.compare-entity-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 500; color: var(--slate);
+  margin-right: 14px; margin-bottom: 8px;
+}
+.compare-entity-dot {
+  width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0;
+}
+
+/* Timeline */
+.tl-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.tl-row:last-child { margin-bottom: 0; }
+.tl-dot-wrap { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:16px; }
+.tl-dot-sc { width:13px; height:13px; border-radius:50%; border:2px solid; flex-shrink:0; }
+.tl-dot-sc.ok      { background:#e1f5ee; border-color:#1D9E75; }
+.tl-dot-sc.warn    { background:#faeeda; border-color:#BA7517; }
+.tl-dot-sc.bad     { background:#fcebeb; border-color:#E24B4A; }
+.tl-dot-sc.pending { background:#f0f0f0; border-color:#aaa; }
+.tl-line-sc { width:2px; flex:1; min-height:12px; background:var(--border); margin-top:2px; }
+.tl-date  { font-size:11px; color:var(--muted); white-space:nowrap; min-width:68px; flex-shrink:0; padding-top:1px; }
+.tl-label { font-size:12.5px; color:var(--navy); line-height:1.5; }
+
+/* Compare table */
+.compare-table { width:100%; border-collapse:collapse; font-size:12px; }
+.compare-table th { font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.7px; color:var(--muted); padding:4px 8px; text-align:left; border-bottom:1px solid var(--border); }
+.compare-table td { padding:6px 8px; border-bottom:1px solid rgba(0,0,0,0.04); vertical-align:middle; }
+.compare-bar-wrap { display:flex; align-items:center; gap:6px; }
+.compare-bar { height:7px; border-radius:4px; min-width:4px; }
+.compare-val { font-size:11px; color:var(--muted); white-space:nowrap; }
+
+/* ── CHART WARM-UP PANEL ─────────────────────────── */
+.warmup-panel {
+  background: var(--surface);
+  border: 1.5px solid rgba(201,151,42,0.25);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.warmup-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+.warmup-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; padding: 3px 10px;
+  border-radius: 20px; background: rgba(201,151,42,0.12);
+  color: var(--gold); flex-shrink: 0;
+}
+.warmup-title { font-size: 13px; font-weight: 500; color: var(--navy); }
+.warmup-level {
+  margin-left: auto; font-size: 11px; font-weight: 500;
+  padding: 2px 9px; border-radius: 10px;
+}
+.warmup-level-ielts      { background: rgba(24,95,165,0.1);  color: #185FA5; }
+.warmup-level-analytical { background: rgba(186,117,23,0.1); color: #BA7517; }
+.warmup-level-board      { background: rgba(29,158,117,0.1); color: #1D9E75; }
+.warmup-chart-wrap { position:relative; width:100%; height:180px; margin-bottom:10px; }
+.warmup-chart-wrap canvas { position:absolute;inset:0;width:100%!important;height:100%!important; }
+.warmup-task-box {
+  background: #E6F1FB; border: 0.5px solid #B5D4F4;
+  border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 10px;
+}
+.warmup-task-label { font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.9px;color:#185FA5;margin-bottom:4px; }
+.warmup-task-text  { font-size:12.5px;color:#0C447C;line-height:1.65; }
+.warmup-textarea {
+  width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:10px 13px;font-size:12.5px;font-family:'DM Sans',sans-serif;
+  color:var(--navy);resize:vertical;min-height:80px;outline:none;
+  background:var(--surface);line-height:1.7;
+}
+.warmup-textarea:focus { border-color:var(--gold); }
+.warmup-btn-row { display:flex;gap:8px;margin-top:10px; }
+.warmup-feedback {
+  display:none;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px 16px;margin-top:8px;
+  font-size:12.5px;line-height:1.75;color:var(--slate);
+  overflow:visible; max-height:none;
+}
+.warmup-feedback.on { display:block;animation:fadeIn .25s ease; }
+
+/* Glossary styles — shared by warmup + scenario */
+.warmup-glossary, .scenario-glossary {
+  background: rgba(24,95,165,0.05);
+  border: 1px solid rgba(24,95,165,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+.scenario-glossary { margin-top: 10px; margin-bottom: 0; }
+.warmup-glossary-title, .scenario-glossary-title {
+  font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;
+  color:#185FA5;margin-bottom:7px;display:flex;align-items:center;gap:5px;
+}
+.warmup-glossary-grid, .scenario-glossary-grid {
+  display:flex;flex-wrap:wrap;gap:5px;
+}
+.glossary-tag {
+  background:#fff;border:1px solid rgba(24,95,165,0.2);border-radius:5px;
+  padding:3px 8px;font-size:11px;cursor:default;position:relative;
+  transition:all .15s;
+}
+.glossary-tag:hover { border-color:#185FA5;background:#EEF4FC; }
+.glossary-tag .g-term { font-weight:600;color:#185FA5; }
+.glossary-tag .g-sep { color:var(--muted);margin:0 3px; }
+.glossary-tag .g-def { color:var(--slate); }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">Executive English Coach <em>for Bankers</em></div>
+  <div class="header-right">
+    <div class="api-status">
+      <div class="status-dot"></div>
+      <span id="api-status-text">AI Ready</span>
+    </div>
+    <div class="header-badge">Powered by Gemini</div>
+  </div>
+</header>
+
+<div class="app-body">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-logo-area">
+      <p>Coaching platform cho lãnh đạo ngân hàng luyện Speaking & Writing tiếng Anh.</p>
+    </div>
+
+    <div class="sidebar-section-label">Luyện tập</div>
+    <div class="nav-item active" data-screen="speaking" onclick="showScreen(this,'speaking')">
+      <span class="nav-icon">🎙</span> Speaking Coach
+    </div>
+    <div class="nav-item" data-screen="writing" onclick="showScreen(this,'writing')">
+      <span class="nav-icon">✍️</span> Writing Coach
+    </div>
+    <div class="nav-item" data-screen="combo" onclick="showScreen(this,'combo')">
+      <span class="nav-icon">⚡</span> Combo Session
+      <span class="nav-badge">Hot</span>
+    </div>
+
+
+    <div class="sidebar-section-label">Tài nguyên</div>
+    <div class="nav-item" data-screen="phrases" onclick="showScreen(this,'phrases')">
+      <span class="nav-icon">📚</span> Phrase Bank
+    </div>
+    <div class="nav-item" data-screen="progress" onclick="showScreen(this,'progress')">
+      <span class="nav-icon">📈</span> My Progress
+    </div>
+
+
+    <div class="sidebar-footer">
+      Built for banking professionals.<br>
+      Requires <a href="https://aistudio.google.com/apikey" target="_blank">Google Gemini API key</a> (miễn phí).
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ═══ SPEAKING ═══ -->
+    <div id="screen-speaking" class="screen active">
+      <div class="page-header">
+        <div class="page-title">Speaking Coach</div>
+        <div class="page-sub">Luyện nhận xét, đánh giá, tổng kết trong tình huống thực tế ngân hàng</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="card-icon">🎯</span> Chọn tình huống</div>
+        <div class="scenario-grid" id="speaking-scenarios"></div>
+      </div>
+      <div id="speaking-practice" style="display:none">
+        <div class="prompt-box" id="speaking-prompt"></div>
+        <div class="card">
+          <div class="card-title"><span class="card-icon">💬</span> Phrase bank gợi ý — click để chèn</div>
+          <div class="phrase-bank" id="speaking-phrases"></div>
+        </div>
+        <div class="input-area">
+          <div class="input-toolbar">
+            <span class="toolbar-label">Chế độ:</span>
+            <button class="toolbar-btn tb-active" id="sp-txt-btn" onclick="setSpMode('text')">✍️ Viết</button>
+            <button class="toolbar-btn" id="sp-voc-btn" onclick="setSpMode('voice')">🎙 Nói</button>
+            <div id="sp-mic-wrap" style="display:none;margin-left:auto;display:none;align-items:center;gap:8px">
+              <button id="sp-mic-btn" onclick="toggleMic()" class="toolbar-btn"
+                style="display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1.5px solid var(--border);transition:all .2s">
+                <span id="sp-mic-icon">🎙</span>
+                <span id="sp-mic-label">Bắt đầu nói</span>
+              </button>
+              <span id="sp-mic-status" style="font-size:11px;color:var(--muted)"></span>
+            </div>
+          </div>
+          <div id="sp-voice-hint" style="display:none;padding:8px 14px;background:rgba(29,158,117,0.08);border-bottom:1px solid rgba(29,158,117,0.15);font-size:12px;color:#1D9E75">
+            💡 Nói rõ ràng bằng tiếng Anh · Nhấn dừng khi xong · Text sẽ hiện bên dưới
+          </div>
+          <textarea class="response-textarea" id="sp-textarea" rows="5"
+            placeholder="Viết câu trả lời như thể bạn đang nói — tự nhiên, trực tiếp, có trọng lượng..."></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-gold" id="sp-submit" onclick="submitResponse('speaking')">✨ Get AI Feedback</button>
+          <button class="btn btn-outline" onclick="resetPractice('speaking')">↻ Tình huống khác</button>
+        </div>
+        <div class="loading" id="sp-loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>AI coach đang phân tích...</span></div>
+        <div class="feedback-box" id="sp-feedback"></div>
+      </div>
+    </div>
+
+    <!-- ═══ WRITING ═══ -->
+    <div id="screen-writing" class="screen">
+      <div class="page-header">
+        <div class="page-title">Writing Coach</div>
+        <div class="page-sub">Luyện email, memo, report summary cho môi trường banking chuyên nghiệp</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-icon">📝</span> Chọn loại bài viết</div>
+        <div class="scenario-grid" id="writing-scenarios"></div>
+      </div>
+      <div id="writing-practice" style="display:none">
+        <div class="prompt-box" id="writing-prompt"></div>
+        <div class="card">
+          <div class="card-title"><span class="card-icon">💡</span> Phrase bank — click để chèn</div>
+          <div class="phrase-bank" id="writing-phrases"></div>
+        </div>
+        <div class="input-area">
+          <div class="input-toolbar">
+            <span class="toolbar-label">Word count:</span>
+            <span class="wc-display" id="wr-wc">0</span>
+            <span class="wc-hint" style="margin-left:auto">Target: 80–150 words</span>
+          </div>
+          <textarea class="response-textarea" id="wr-textarea" rows="8"
+            placeholder="Write your response here — formal, structured, executive tone..."
+            oninput="document.getElementById('wr-wc').textContent=this.value.trim().split(/\s+/).filter(Boolean).length"></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="wr-submit" onclick="submitResponse('writing')">✨ Get AI Feedback</button>
+          <button class="btn btn-outline" onclick="resetPractice('writing')">↻ Task khác</button>
+        </div>
+        <div class="loading" id="wr-loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>AI coach đang review...</span></div>
+        <div class="feedback-box" id="wr-feedback"></div>
+      </div>
+    </div>
+
+    <!-- ═══ COMBO ═══ -->
+    <div id="screen-combo" class="screen">
+      <div class="page-header">
+        <div class="page-title">Combo Session</div>
+        <div class="page-sub">Cùng 1 tình huống — luyện cả nói lẫn viết, AI so sánh 2 phong cách</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-icon">⚡</span> Chọn tình huống</div>
+        <div class="scenario-grid" id="combo-scenarios"></div>
+      </div>
+      <div id="combo-practice" style="display:none">
+        <div class="prompt-box" id="combo-prompt"></div>
+        <div class="mode-selector">
+          <button class="mode-btn active" id="cb-sp-btn" onclick="setComboTab('speak')">
+            <span class="mode-icon">🎙</span>Spoken version
+          </button>
+          <button class="mode-btn" id="cb-wr-btn" onclick="setComboTab('write')">
+            <span class="mode-icon">✍️</span>Written version
+          </button>
+        </div>
+        <div id="cb-speak-panel">
+          <div class="card">
+            <div class="card-title"><span class="card-icon">💬</span>Spoken phrases</div>
+            <div class="phrase-bank" id="cb-sp-phrases"></div>
+          </div>
+          <div class="input-area">
+            <div class="input-toolbar">
+              <span class="toolbar-label">Giọng nói:</span>
+              <button id="cb-mic-btn" onclick="toggleMic('cb')" class="toolbar-btn"
+                style="display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1.5px solid var(--border)">
+                <span id="cb-mic-icon">🎙</span>
+                <span id="cb-mic-label">Bắt đầu nói</span>
+              </button>
+              <span id="cb-mic-status" style="font-size:11px;color:var(--muted)"></span>
+            </div>
+            <textarea class="response-textarea" id="cb-sp-textarea" rows="5"
+              placeholder="Spoken English — direct, natural, authoritative. Write as you'd say it."></textarea>
+          </div>
+        </div>
+        <div id="cb-write-panel" style="display:none">
+          <div class="card">
+            <div class="card-title"><span class="card-icon">📄</span>Written phrases</div>
+            <div class="phrase-bank" id="cb-wr-phrases"></div>
+          </div>
+          <div class="input-area">
+            <textarea class="response-textarea" id="cb-wr-textarea" rows="5"
+              placeholder="Written English — formal, structured, professional. Email/memo style."></textarea>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-gold" id="cb-submit" onclick="submitResponse('combo')">⚡ Compare Both Versions</button>
+          <button class="btn btn-outline" onclick="resetPractice('combo')">↻ Tình huống khác</button>
+        </div>
+        <div class="loading" id="cb-loading"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>So sánh spoken vs written...</span></div>
+        <div class="feedback-box" id="cb-feedback"></div>
+      </div>
+    </div>
+
+        <!-- ═══ PHRASES ═══ -->
+    <div id="screen-phrases" class="screen">
+      <div class="page-header">
+        <div class="page-title">Phrase Bank</div>
+        <div class="page-sub">Bộ từ chức năng cho lãnh đạo ngành ngân hàng — 4 nhóm chức năng</div>
+      </div>
+      <div class="phrase-lib-grid" id="phrase-lib"></div>
+    </div>
+
+    <!-- ═══ PROGRESS ═══ -->
+    <div id="screen-progress" class="screen">
+      <div class="page-header">
+        <div class="page-title">My Progress</div>
+        <div class="page-sub">Theo dõi hành trình luyện tập</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num" id="st-sessions">0</div><div class="stat-lbl">Sessions</div></div>
+        <div class="stat-card"><div class="stat-num" id="st-days">0</div><div class="stat-lbl">Active days</div></div>
+        <div class="stat-card"><div class="stat-num" id="st-score">—</div><div class="stat-lbl">Avg score</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-icon">📋</span>Session history</div>
+        <div id="history-body"><div class="empty-state">Chưa có buổi học nào. Bắt đầu luyện tập ngay!</div></div>
+      </div>
+    </div>
+
+    <!-- ═══ SETTINGS ═══ -->
+
+  </main>
+</div>
+
+<!-- ── TASK BOX STYLE (inline so no cascade issues) ── -->
+<style>
+.task-box {
+  background: #E6F1FB;
+  border: 0.5px solid #B5D4F4;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+.task-box .tl { font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.9px;color:#185FA5;margin-bottom:5px; }
+.task-box .tt { font-size:13px;color:#0C447C;line-height:1.65; }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+/* ═══════════════════════════════════════════════
+   CONFIG — paste your Google Apps Script URL here
+═══════════════════════════════════════════════ */
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycby_tge0Wbjz0Td-df7r0PU7eHP0oXAz7uthPJjTXRUKN1IXYVZPxeIHpPjrSwsA37VJIw/exec'; // fixed
+const STUDENT_NAME = localStorage.getItem('eec_student_name') || 'Học viên';
+
+/* ═══════════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════════ */
+const SCENARIOS = {
+  speaking: [
+    {
+      id: "sp-01", week: 1, phase: 1,
+      emoji: "\ud83d\udcca", name: "Q3 Report Review",
+      desc: "Comment on quarterly banking figures", badge: "speaking",
+      difficulty: "intermediate",
+      cats: ["commenting", "evaluating"],
+      warmup: {chartType: "line", taskIdx: 0},
+      prompt: "Your team has just presented Q3 results. NPL ratio rose to 2.8% (up from 2.1%). Net interest margin held steady at 3.4%. Credit growth reached 14.2%, exceeding the 12% target.",
+      task: "Comment on these key metrics, evaluate the team's performance, and wrap up with your key takeaway and next steps.",
+      model: {
+        beginner: "The Q3 results show mixed performance. Credit growth exceeded our target, which is positive. However, the NPL ratio increased significantly, which is a concern. We need to monitor this closely going forward.",
+        intermediate: "Overall, Q3 results present a mixed picture. On the positive side, credit growth of 14.2% exceeded our 12% target \u2014 a strong result that reflects the team's commercial drive. However, the rise in NPL ratio from 2.1% to 2.8% warrants serious attention. This suggests credit quality may have been sacrificed for growth. Net interest margin held steady at 3.4%, which is reassuring. Moving forward, the priority must be tightening our credit assessment process without sacrificing growth momentum.",
+        advanced: "The Q3 results reveal a fundamental tension we need to address directly. While the 14.2% credit growth is commendable \u2014 comfortably ahead of our 12% target \u2014 the 70 basis point deterioration in NPL ratio from 2.1% to 2.8% raises a critical question: are we growing responsibly? The stable NIM at 3.4% provides some comfort, but the NPL trajectory is, frankly, the number I'd like us to focus on. I'd like the credit team to conduct a vintage analysis of 2023 and 2024 originations by the next committee meeting. We need to understand whether this is systemic or concentrated in specific portfolios before we set Q4 targets.",
+      },
+      vocab: [
+        {term: "warrants attention", vi: "c\u1ea7n \u0111\u01b0\u1ee3c ch\u00fa \u00fd / \u0111\u00e1ng lo ng\u1ea1i", reg: "formal"},
+        {term: "trajectory", vi: "xu h\u01b0\u1edbng / qu\u1ef9 \u0111\u1ea1o ph\u00e1t tri\u1ec3n", reg: "executive"},
+        {term: "vintage analysis", vi: "ph\u00e2n t\u00edch theo k\u1ef3 gi\u1ea3i ng\u00e2n", reg: "banking-specific"},
+        {term: "basis point (bp)", vi: "\u0111i\u1ec3m c\u01a1 b\u1ea3n (0.01%)", reg: "banking-specific"},
+        {term: "originations", vi: "c\u00e1c kho\u1ea3n vay m\u1edbi ph\u00e1t sinh", reg: "banking-specific"},
+        {term: "credit quality", vi: "ch\u1ea5t l\u01b0\u1ee3ng t\u00edn d\u1ee5ng", reg: "banking"},
+        {term: "commercial drive", vi: "\u0111\u1ed9ng l\u1ef1c kinh doanh / tinh th\u1ea7n th\u01b0\u01a1ng m\u1ea1i", reg: "executive"},
+      ],
+      errors: [
+        {wrong: "The NPL ratio increased from 2.1% to 2.8%, that is a bad sign.", right: "The NPL ratio increased from 2.1% to 2.8% \u2014 a worrying trend that requires immediate attention.", why: "Kh\u00f4ng d\u00f9ng 'that is' sau d\u1ea5u ph\u1ea9y (comma splice). D\u00f9ng d\u1ea5u g\u1ea1ch ngang ho\u1eb7c b\u1eaft \u0111\u1ea7u c\u00e2u m\u1edbi."},
+        {wrong: "We exceeded the target with 14.2%.", right: "We exceeded the target, achieving 14.2% versus the 12% objective.", why: "Kh\u00f4ng n\u00f3i 'exceed ... with' \u2014 d\u00f9ng 'exceed ... achieving/reaching/recording'"},
+        {wrong: "The result is good and bad.", right: "The results present a mixed picture, with strong growth offset by deteriorating asset quality.", why: "Tr\u00e1nh ng\u00f4n ng\u1eef \u0111\u01a1n gi\u1ea3n 'good/bad' trong ng\u1eef c\u1ea3nh executive. D\u00f9ng 'mixed picture', 'offset by', 'tempered by'"},
+      ],
+      followups: ["How would you respond if a board member asked: 'Is 2.8% NPL still within acceptable range?'", "What would you say differently if results were entirely negative?", "How do you close the meeting and assign action items in English?"],
+      chart: {"type": "bar-group", "title": "Q3 Key Metrics \u2014 Actual vs Target", "labels": ["Credit Growth %", "NIM %", "NPL %", "CIR %"], "actual": [14.2, 3.4, 2.8, 44], "target": [12.0, 3.2, 2.1, 46], "higherIsBetter": [true, true, false, false], "note": "D\u1ea5u \u25b2 = t\u1ed1t h\u01a1n target \u00b7 \u25bc = k\u00e9m h\u01a1n target"},
+    },
+    {
+      id: "sp-02", week: 2, phase: 1,
+      emoji: "\ud83d\udc65", name: "Staff Performance Review",
+      desc: "Evaluate a branch manager's annual performance", badge: "speaking",
+      difficulty: "intermediate",
+      cats: ["evaluating", "meeting"],
+      warmup: {chartType: "bar", taskIdx: 0},
+      prompt: "Branch Manager Nguyen Thu Ha has grown deposits by 22% YoY \u2014 a remarkable result. However, her NPL ratio is 3.9%, the highest in the region. Customer complaints increased by 18%.",
+      task: "Give a balanced verbal performance review. Acknowledge strengths clearly, address the concerns directly, and close with specific expectations going forward.",
+      model: {
+        beginner: "Ms. Ha, your deposit growth of 22% is very good. But the NPL ratio of 3.9% is too high, and customer complaints increased. You need to improve these areas.",
+        intermediate: "Ms. Ha, let me start by recognising your exceptional deposit growth \u2014 22% year-on-year is well above the regional average, and that reflects genuine effort and relationship skill. That said, I need to be direct about two areas of concern. First, the NPL ratio of 3.9% is the highest in our network and suggests that some of this growth may have come at the cost of credit quality. Second, the 18% increase in customer complaints is something we simply cannot accept. Going forward, I'd like to set specific KPIs around both: a reduction of NPL to below 2.5% by mid-year, and a complaints resolution target. I'm confident you can achieve both.",
+        advanced: "Ms. Ha, I want to open by saying that your deposit growth result \u2014 22% year-on-year \u2014 is genuinely impressive and I don't want that achievement to be overshadowed by what follows. You've clearly built strong client relationships, and that is a skill we value enormously. However, I owe you honesty about two concerns that we need to address together. The NPL ratio of 3.9% sits significantly above the regional benchmark, and the 18% rise in complaints suggests there may be pressure in how deals are being structured or promises made to clients. I'm not drawing conclusions \u2014 I'd like to understand your perspective first. But I want to be clear: maintaining this growth trajectory is only sustainable if we bring those two indicators in line. Let's agree on a concrete improvement plan today.",
+      },
+      vocab: [
+        {term: "overshadowed by", vi: "b\u1ecb lu m\u1edd b\u1edfi", reg: "formal"},
+        {term: "benchmark", vi: "ti\u00eau chu\u1ea9n so s\u00e1nh / m\u1ee9c tham chi\u1ebfu", reg: "business"},
+        {term: "sustainable", vi: "b\u1ec1n v\u1eefng", reg: "business"},
+        {term: "improvement plan", vi: "k\u1ebf ho\u1ea1ch c\u1ea3i thi\u1ec7n", reg: "HR/management"},
+        {term: "I owe you honesty", vi: "T\u00f4i ph\u1ea3i th\u00e0nh th\u1eadt v\u1edbi b\u1ea1n", reg: "executive \u2014 builds trust"},
+        {term: "drawing conclusions", vi: "\u0111\u01b0a ra k\u1ebft lu\u1eadn v\u1ed9i v\u00e0ng", reg: "neutral"},
+        {term: "KPI", vi: "ch\u1ec9 s\u1ed1 \u0111\u00e1nh gi\u00e1 hi\u1ec7u su\u1ea5t then ch\u1ed1t", reg: "management"},
+      ],
+      errors: [
+        {wrong: "Your NPL is very bad and you must fix it.", right: "The NPL ratio requires immediate attention \u2014 I'd like us to set a clear target and timeline together.", why: "Tr\u00e1nh ng\u00f4n ng\u1eef ch\u1ec9 tr\u00edch tr\u1ef1c ti\u1ebfp trong performance review. D\u00f9ng ng\u00f4n ng\u1eef h\u01b0\u1edbng \u0111\u1ebfn gi\u1ea3i ph\u00e1p."},
+        {wrong: "I think maybe your customer service is not so good.", right: "The 18% increase in complaints is a clear signal that something needs to change in how clients are being served.", why: "D\u1eef li\u1ec7u n\u00f3i thay cho b\u1ea1n. Kh\u00f4ng c\u1ea7n hedge b\u1eb1ng 'I think maybe' \u2014 \u0111i\u1ec1u \u0111\u00f3 l\u00e0m gi\u1ea3m authority."},
+      ],
+      followups: ["Ms. Ha pushes back: 'The NPL increase is due to market conditions, not my decisions.' How do you respond?", "How do you close this review and make her feel motivated, not deflated?", "How do you document this conversation in written English?"],
+      chart: {"type": "spider", "title": "Branch Manager KPI Scorecard", "labels": ["Deposit Growth", "Customer Satisfaction", "NPL Control", "SLA Compliance", "Revenue"], "actual": [92, 54, 38, 60, 85], "target": [70, 70, 70, 70, 70], "note": "Score/100 \u00b7 V\u1ea1ch = target 70 \u00b7 \u0110\u1ecf = d\u01b0\u1edbi 60"},
+    },
+    {
+      id: "sp-03", week: 4, phase: 2,
+      emoji: "\u26a0\ufe0f", name: "Risk Committee Briefing",
+      desc: "Assess a credit risk situation verbally", badge: "speaking",
+      difficulty: "advanced",
+      cats: ["commenting", "summary"],
+      warmup: {chartType: "line", taskIdx: 1},
+      prompt: "A corporate client in the real estate sector has missed two consecutive interest payments. Total loan exposure: VND 450 billion. Collateral coverage: 85%. Market conditions are challenging \u2014 the real estate market has contracted 15% YTD.",
+      task: "Verbally brief your Risk Committee. Assess the situation, state your risk view, and recommend next steps with clear rationale.",
+      model: {
+        beginner: "The client missed two payments. Our exposure is VND 450 billion with 85% collateral. This is a risk situation. I recommend we contact the client and consider restructuring.",
+        intermediate: "I'd like to bring to the committee's attention a developing situation with one of our real estate clients. We have VND 450 billion in exposure, and the client has now missed two consecutive interest payments \u2014 which, under our policy, triggers a watch-list classification. Collateral coverage stands at 85%, which provides partial protection, but given the 15% contraction in the real estate market year-to-date, collateral values may have deteriorated. My recommendation is a three-step response: first, an immediate client meeting to understand the cash flow position; second, an independent valuation of the collateral; and third, preparation of a loan restructuring proposal should that prove necessary.",
+        advanced: "I want to flag a situation that I believe requires the committee's immediate attention. We have a VND 450 billion exposure to a real estate developer who has now defaulted on two consecutive interest payments \u2014 a clear early warning signal under our credit policy. Collateral coverage is 85%, which is adequate on paper, but I would caution the committee not to take comfort in that figure: the sector has contracted 15% year-to-date, and we have not yet completed an updated valuation. The critical unknown is the developer's liquidity position. Are they experiencing temporary cash flow stress, or is this a structural solvency issue? That distinction will determine our entire strategy. I'm recommending we treat this as a potential impairment until proven otherwise, and I'd like to convene a working group to develop resolution options within the next five business days.",
+      },
+      vocab: [
+        {term: "watch-list classification", vi: "ph\u00e2n lo\u1ea1i v\u00e0o danh s\u00e1ch theo d\u00f5i", reg: "banking"},
+        {term: "collateral values", vi: "gi\u00e1 tr\u1ecb t\u00e0i s\u1ea3n \u0111\u1ea3m b\u1ea3o", reg: "banking"},
+        {term: "cash flow stress", vi: "c\u0103ng th\u1eb3ng d\u00f2ng ti\u1ec1n", reg: "banking/finance"},
+        {term: "solvency issue", vi: "v\u1ea5n \u0111\u1ec1 kh\u1ea3 n\u0103ng thanh to\u00e1n", reg: "finance"},
+        {term: "potential impairment", vi: "suy gi\u1ea3m gi\u00e1 tr\u1ecb ti\u1ec1m \u1ea9n", reg: "accounting/banking"},
+        {term: "resolution options", vi: "c\u00e1c ph\u01b0\u01a1ng \u00e1n x\u1eed l\u00fd", reg: "banking"},
+        {term: "convene a working group", vi: "tri\u1ec7u t\u1eadp nh\u00f3m l\u00e0m vi\u1ec7c", reg: "formal/executive"},
+      ],
+      errors: [
+        {wrong: "This client is very bad and we will lose money.", right: "This exposure carries significant downside risk and may result in a provisioning requirement.", why: "Ng\u00f4n ng\u1eef r\u1ee7i ro c\u1ea7n ch\u00ednh x\u00e1c v\u00e0 trung l\u1eadp \u2014 tr\u00e1nh ph\u00e1n x\u00e9t c\u1ea3m x\u00fac."},
+        {wrong: "We should meet with the client and see what happens.", right: "I recommend an immediate client meeting to assess liquidity position, followed by an independent collateral valuation within five business days.", why: "Khuy\u1ebfn ngh\u1ecb c\u1ea7n c\u1ee5 th\u1ec3: ai l\u00e0m g\u00ec, trong bao l\u00e2u. 'See what happens' nghe kh\u00f4ng chuy\u00ean nghi\u1ec7p."},
+      ],
+      followups: ["A committee member asks: 'Why weren't we informed sooner?' How do you respond without being defensive?", "How do you summarise this briefing in a formal follow-up email?", "What language do you use to escalate this to the CEO?"],
+      chart: {"type": "timeline", "title": "Client Risk Escalation", "events": [{"date": "Jan 2024", "label": "Loan disbursed \u2014 DSCR 1.3x", "status": "ok"}, {"date": "Aug 2024", "label": "DSCR drops to 0.82 \u2014 below covenant", "status": "warn"}, {"date": "Oct 2024", "label": "1st missed interest payment", "status": "warn"}, {"date": "Nov 2024", "label": "2nd missed payment \u2014 watch-list", "status": "bad"}, {"date": "Now", "label": "Risk Committee review required", "status": "bad"}]},
+    },
+    {
+      id: "sp-04", week: 6, phase: 2,
+      emoji: "\ud83c\udfe6", name: "Strategy Meeting Close",
+      desc: "Summarize and close a strategic discussion", badge: "speaking",
+      difficulty: "advanced",
+      cats: ["summary", "meeting"],
+      warmup: {chartType: "pie", taskIdx: 1},
+      prompt: "Your leadership team has spent 90 minutes debating two strategic options: (A) expand into retail SME lending \u2014 high growth, higher risk; (B) deepen existing corporate relationships \u2014 stable, lower margin. The team is split roughly 60/40 in favour of Option A.",
+      task: "As chair, summarize the key arguments on both sides, state the outcome (decision or next step), and close the meeting with clear accountabilities.",
+      model: {
+        beginner: "We discussed two options. Most people prefer Option A. We will move forward with Option A and discuss more next time.",
+        intermediate: "Let me bring this discussion to a close. We've heard compelling arguments on both sides. The case for SME expansion rests on growth potential and market timing. The case for deepening corporate relationships rests on risk management and margin certainty in an uncertain environment. The room is broadly in favour of Option A, but I want to acknowledge that the concerns raised about risk appetite are valid and should not be dismissed. My proposal is this: we approve Option A in principle today, but we commission a detailed risk and resource assessment before any capital is committed. I'd like that assessment on my desk in three weeks. [Name], can you own that workstream?",
+        advanced: "Before I close, I want to ensure we've done justice to both positions \u2014 because I think the quality of this debate reflects well on this team. Those advocating for SME expansion have made a persuasive case: the market window is real, our competitors are moving, and our balance sheet can support measured growth. Those urging caution have made an equally important point: our risk infrastructure was not built for SME scale, and the cost of getting this wrong \u2014 in provisions, in operational stress, in management attention \u2014 could be significant. Here is where I land: we will proceed with Option A, but we will do so with our eyes open. I am not prepared to commit capital until we have a rigorous risk framework and a staffing plan on the table. [Name] will lead that assessment, three-week timeline, back to this group. Meeting adjourned.",
+      },
+      vocab: [
+        {term: "in principle", vi: "v\u1ec1 m\u1eb7t nguy\u00ean t\u1eafc", reg: "formal"},
+        {term: "workstream", vi: "h\u1ea1ng m\u1ee5c c\u00f4ng vi\u1ec7c / lu\u1ed3ng c\u00f4ng vi\u1ec7c", reg: "business"},
+        {term: "risk appetite", vi: "kh\u1ea9u v\u1ecb r\u1ee7i ro", reg: "banking/governance"},
+        {term: "balance sheet", vi: "b\u1ea3ng c\u00e2n \u0111\u1ed1i k\u1ebf to\u00e1n", reg: "finance"},
+        {term: "provisions", vi: "d\u1ef1 ph\u00f2ng r\u1ee7i ro t\u00edn d\u1ee5ng", reg: "banking"},
+        {term: "we will do so with our eyes open", vi: "ch\u00fang ta s\u1ebd th\u1ef1c hi\u1ec7n m\u1ed9t c\u00e1ch t\u1ec9nh t\u00e1o, bi\u1ebft r\u00f5 r\u1ee7i ro", reg: "executive idiom"},
+        {term: "meeting adjourned", vi: "cu\u1ed9c h\u1ecdp k\u1ebft th\u00fac", reg: "formal"},
+      ],
+      errors: [
+        {wrong: "I think Option A is better so we choose it.", right: "Having weighed both perspectives, the consensus is to proceed with Option A, subject to a risk assessment.", why: "L\u00e3nh \u0111\u1ea1o kh\u00f4ng n\u00f3i 'I think ... better'. N\u00f3i quy\u1ebft \u0111\u1ecbnh d\u1ef1a tr\u00ean quy tr\u00ecnh, kh\u00f4ng c\u1ea3m t\u00ednh."},
+        {wrong: "Everyone must agree with this decision.", right: "I recognise this is not a unanimous view, but this is the direction we're taking as a leadership team.", why: "Th\u1eeba nh\u1eadn s\u1ef1 kh\u00f4ng \u0111\u1ed3ng thu\u1eadn nh\u01b0ng v\u1eabn quy\u1ebft \u0111o\u00e1n \u2014 \u0111\u00e2y l\u00e0 d\u1ea5u hi\u1ec7u c\u1ee7a l\u00e3nh \u0111\u1ea1o m\u1ea1nh."},
+      ],
+      followups: ["One director says: 'I want my dissent recorded in the minutes.' How do you respond gracefully?", "How do you open the follow-up meeting three weeks later with the assessment results?", "Write the action items from this meeting as bullet points in email English."],
+      chart: {"type": "compare", "title": "Strategic Options \u2014 SME vs Corporate", "options": ["SME Expansion", "Corporate Deepening"], "dimensions": ["ROE Potential", "Risk Level", "Time to Revenue", "Infrastructure", "Competition"], "scores": [[85, 65, 55, 70, 60], [60, 30, 80, 35, 40]], "note": "Higher score = more favourable on that dimension"},
+    },
+    {
+      id: "sp-05", week: 11, phase: 3,
+      emoji: "📊", name: "Chart Presentation — Board Level",
+      desc: "Present all 4 charts verbally to the Risk Committee", badge: "speaking",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating", "summary"],
+      warmup: {chartType: "pie", taskIdx: 2},
+      prompt: "You are presenting to the Risk Committee. Four charts are on screen: (1) VCB NPL ratio vs industry 2019–2024, (2) NIM comparison across 7 banks, (3) Loan portfolio breakdown, (4) Credit growth vs NPL dual-axis 2020–2024.",
+      task: "Present all four charts in under 4 minutes at Board level — no filler, each chart gets one observation, one implication. Close with a single strategic recommendation.",
+      model: {
+        beginner: "The first chart shows NPL is rising. The second chart compares NIM — TCB has the highest. The third chart shows mortgage is the biggest part of the portfolio. The fourth chart shows credit growth and NPL together.",
+        intermediate: "Starting with asset quality: VCB's NPL has risen to 2.8% — still below the industry average of 2.9%, but the gap has narrowed to just 10 basis points. This trajectory warrants attention. On NIM: private banks significantly outperform state-owned peers — TCB's 4.9% is the clear outlier, suggesting strong pricing power but potentially elevated risk appetite. The loan portfolio shows high mortgage concentration at 38% — above sector norms — which creates exposure to property market stress. Finally, the dual-axis chart reveals the credit quality lag: the 2022 credit surge is now showing up in 2024 NPL figures. If current credit growth continues, we should anticipate further NPL pressure in 2026.",
+        advanced: "Let me take these four charts together, because the story they tell is interconnected. Asset quality: VCB's historical credit quality advantage is eroding — the NPL gap versus sector has collapsed from 70 to 10 basis points. That is not noise; that is a trend. NIM: the structural difference between private and state-owned banks — 120 basis points on average — tells us that pricing power and growth ambition are concentrated in the private sector. Watch TCB. Portfolio: the 38% mortgage concentration is our most significant single risk — 8 to 13 points above sector norm, with no evident reduction plan. And the dual-axis chart ties it together: the credit quality lag means the decisions made in 2022 are landing on us now, and the decisions we make in 2024 will land in 2026. My recommendation: before we approve Q4 growth targets, I want a vintage analysis of 2022 and 2023 originations on the table.",
+      },
+      vocab: [
+        {term: "trajectory", vi: "xu hướng / quỹ đạo phát triển", reg: "executive"},
+        {term: "credit quality lag", vi: "độ trễ chất lượng tín dụng", reg: "banking"},
+        {term: "concentration risk", vi: "rủi ro tập trung", reg: "banking"},
+        {term: "pricing power", vi: "khả năng định giá", reg: "finance"},
+        {term: "vintage analysis", vi: "phân tích theo kỳ giải ngân", reg: "banking"},
+      ],
+      errors: [
+        {wrong: "The NPL chart shows NPL went up from 1.6% to 2.8% over the years.", right: "VCB's NPL has risen 120 basis points since 2021 — and the gap versus sector has collapsed from 70 to just 10 basis points.", why: "Board-level commentary cần trend + benchmark + implication. Không chỉ liệt kê số."},
+        {wrong: "TCB has very high NIM which is good for them.", right: "TCB's 4.9% NIM — 115 basis points above sector average — suggests strong pricing power, though it may also reflect elevated risk appetite.", why: "Executive level phải question sustainability — không chỉ nhận xét tích cực."},
+      ],
+      chart: {"type": "bar-group", "title": "4 Chart Summary — Key Metrics", "labels": ["VCB NPL %", "Sector NPL %", "TCB NIM %", "Sector NIM %", "Mortgage %"], "actual": [2.8, 2.9, 4.9, 3.75, 38], "target": [2.1, 3.1, 3.75, 3.75, 30], "higherIsBetter": [false, false, true, true, false], "note": "Summary view — all 4 charts in one"},
+    },
+    {
+      id: "sp-06", week: 12, phase: 3,
+      emoji: "🏆", name: "Final Assessment — Speaking",
+      desc: "Choose your scenario and deliver board-level commentary", badge: "speaking",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating", "summary", "meeting"],
+      warmup: {chartType: "dual", taskIdx: 2},
+      prompt: "This is your final speaking assessment. Your assessor will give you one scenario — you have 60 seconds to prepare and 3 minutes to deliver. Options: (A) Q3 results with mixed performance data, (B) Risk Committee briefing on a watch-list client, (C) Strategy meeting close with two competing options, or (D) Board-level commentary on two charts of your choice.",
+      task: "Deliver a 3-minute spoken response at executive level. Use specific figures, at least 3 executive phrases from the phrase bank, a clear structure, and close with a decision or recommendation.",
+      model: {
+        beginner: "Focus on: using numbers, having a clear structure, and ending with a recommendation.",
+        intermediate: "Model for option A: 'Q3 results present a mixed picture. Credit growth of 14.2% exceeded our 12% target — strong commercial execution. However, the NPL ratio deteriorated 70 basis points to 2.8%, which warrants immediate attention. NIM held at 3.4%, broadly in line with strategy. Moving forward, the priority must be understanding whether the NPL increase is concentrated in specific segments — I'd like a vintage analysis on the table before we finalise Q4 targets.'",
+        advanced: "Model for option C: 'Before I close, I want to be clear about what we've decided and why. The arguments for SME expansion are real — market window, competitor positioning, balance sheet capacity. The concerns about risk infrastructure are equally valid. Here is where I land: we approve the strategic direction today, but we do not commit capital until we have a risk framework and staffing plan in hand. That assessment is due in three weeks. [Name] owns the workstream. Meeting adjourned.'",
+      },
+      vocab: [
+        {term: "mixed picture", vi: "bức tranh hỗn hợp — tốt lẫn xấu", reg: "executive"},
+        {term: "broadly in line with", vi: "nhìn chung phù hợp với", reg: "formal"},
+        {term: "here is where I land", vi: "đây là kết luận của tôi", reg: "executive idiom"},
+        {term: "vintage analysis", vi: "phân tích theo kỳ giải ngân", reg: "banking"},
+        {term: "workstream", vi: "hạng mục công việc", reg: "business"},
+      ],
+      errors: [
+        {wrong: "I think the result is quite good overall but there are some problems.", right: "The results present a mixed picture: credit growth exceeded target, while NPL deterioration warrants a strategic review.", why: "Final assessment — không dùng 'I think', 'quite', 'some problems'. Cần precision và executive register."},
+        {wrong: "We need to think about this more before making a decision.", right: "Here is where I land: we proceed with [X], subject to [condition], with [Name] owning the next step by [date].", why: "Closing không được kết thúc bằng sự do dự. Phải có quyết định rõ ràng."},
+      ],
+      chart: {"type": "spider", "title": "Final Assessment Rubric", "labels": ["Register", "Content", "Structure", "Fluency", "Closure"], "actual": [0,0,0,0,0], "target": [35,25,20,10,10], "note": "Giáo viên điền điểm sau khi học viên hoàn thành"},
+    },
+  ],
+  writing: [
+    {
+      id: "wr-01", week: 3, phase: 1,
+      emoji: "\ud83d\udce7", name: "Executive Email \u2014 Q3 Update",
+      desc: "Write a board update on quarterly performance", badge: "writing",
+      difficulty: "intermediate",
+      cats: ["commenting", "evaluating"],
+      warmup: {chartType: "pie", taskIdx: 0},
+      prompt: "Write a short email to the CEO summarising Q3 performance. Key points: credit growth exceeded target (14.2% vs 12%), NPL ratio rose to 2.8% from 2.1%, NIM held steady at 3.4%. Your overall assessment: cautiously positive.",
+      task: "Write a concise executive email (80\u2013120 words). Professional, decisive tone. Include: subject line, key highlights, your assessment, and one clear recommendation.",
+      model: {"subject": "Q3 2024 Performance Summary \u2014 For Your Review", "body_intermediate": "Dear [Name],\n\nPlease find below a brief summary of Q3 2024 performance.\n\nCredit growth reached 14.2%, exceeding our 12% target \u2014 a strong result driven by the retail and SME segments. Net interest margin remained stable at 3.4%. However, the NPL ratio rose to 2.8% (from 2.1% in Q2), which requires monitoring.\n\nOverall, the quarter reflects solid commercial momentum with an emerging credit quality risk. I recommend we convene a credit review before finalising Q4 targets.\n\nFull report attached.\n\nBest regards,\n[Your name]", "body_advanced": "Dear [Name],\n\nQ3 results present a broadly positive picture with one area requiring your attention.\n\nCredit growth of 14.2% exceeded our 12% objective \u2014 commendable commercial execution. NIM held steady at 3.4%, reflecting disciplined pricing. The concern is the NPL ratio, which deteriorated 70bp to 2.8%. While still within our risk appetite threshold, the trend warrants scrutiny before we set Q4 growth targets.\n\nI recommend a targeted credit quality review ahead of the next board cycle. I am available to discuss at your convenience.\n\nBest regards,\n[Your name]"},
+      vocab: [
+        {term: "convene a review", vi: "tri\u1ec7u t\u1eadp bu\u1ed5i xem x\u00e9t / t\u1ed5 ch\u1ee9c h\u1ecdp \u0111\u00e1nh gi\u00e1", reg: "formal"},
+        {term: "commendable", vi: "\u0111\u00e1ng khen ng\u1ee3i", reg: "formal/executive"},
+        {term: "warrants scrutiny", vi: "c\u1ea7n \u0111\u01b0\u1ee3c xem x\u00e9t k\u1ef9 l\u01b0\u1ee1ng", reg: "executive"},
+        {term: "risk appetite threshold", vi: "ng\u01b0\u1ee1ng kh\u1ea9u v\u1ecb r\u1ee7i ro", reg: "banking"},
+        {term: "at your convenience", vi: "khi ti\u1ec7n cho b\u1ea1n / v\u00e0o th\u1eddi \u0111i\u1ec3m ph\u00f9 h\u1ee3p v\u1edbi b\u1ea1n", reg: "polite/formal"},
+        {term: "board cycle", vi: "chu k\u1ef3 h\u1ecdp h\u1ed9i \u0111\u1ed3ng qu\u1ea3n tr\u1ecb", reg: "governance"},
+      ],
+      errors: [
+        {wrong: "I am writing to inform you that the Q3 results are available and I would like to share them with you.", right: "Please find below a brief summary of Q3 2024 performance.", why: "Email \u0111i\u1ec1u h\u00e0nh kh\u00f4ng c\u1ea7n 'warm-up'. C\u00e2u \u0111\u1ea7u ti\u00ean ph\u1ea3i l\u00e0 th\u00f4ng tin, kh\u00f4ng ph\u1ea3i gi\u1edbi thi\u1ec7u."},
+        {wrong: "The NPL ratio is bad \u2014 it went up a lot.", right: "The NPL ratio deteriorated 70bp to 2.8%, which warrants monitoring.", why: "Tr\u00e1nh 'bad', 'a lot', 'went up'. D\u00f9ng t\u1eeb chuy\u00ean ng\u00e0nh v\u00e0 s\u1ed1 li\u1ec7u c\u1ee5 th\u1ec3."},
+        {wrong: "Please let me know if you have any questions about this.", right: "I am available to discuss at your convenience.", why: "K\u1ebft th\u00fac email \u0111i\u1ec1u h\u00e0nh b\u1eb1ng c\u00e1ch \u0111\u1ec1 ngh\u1ecb h\u00e0nh \u0111\u1ed9ng c\u1ee5 th\u1ec3, kh\u00f4ng ph\u1ea3i c\u00e2u h\u1ecfi th\u1ee5 \u0111\u1ed9ng."},
+      ],
+      chart: {"type": "bar-group", "title": "Q3 Performance \u2014 Actual vs Target", "labels": ["Credit Growth %", "CIR %", "NPL %"], "actual": [14.2, 44, 2.8], "target": [12, 46, 2.1], "higherIsBetter": [true, false, false], "note": "Green = \u0111\u1ea1t/v\u01b0\u1ee3t target \u00b7 Red = ch\u01b0a \u0111\u1ea1t"},
+    },
+    {
+      id: "wr-02", week: 5, phase: 2,
+      emoji: "\ud83d\udccb", name: "Meeting Minutes",
+      desc: "Write up decisions and actions from a credit committee", badge: "writing",
+      difficulty: "intermediate",
+      cats: ["summary", "meeting"],
+      warmup: {chartType: "bar", taskIdx: 1},
+      prompt: "You chaired a credit committee meeting. Decision: Approve VND 200 billion facility for Hoang Long Corp with conditions \u2014 additional collateral required within 30 days, monthly monitoring report. One member (Mr. Duc) dissented, citing concerns about sector concentration risk.",
+      task: "Write formal meeting minutes (100\u2013140 words) capturing: attendees note, decision, conditions, dissenting view, and next steps with owners.",
+      model: {"intermediate": "CREDIT COMMITTEE MEETING MINUTES\nDate: [Date] | Chaired by: [Name]\n\nItem 1: Hoang Long Corp \u2014 Credit Facility (VND 200 billion)\n\nAfter discussion, the Committee resolved to approve the VND 200 billion credit facility for Hoang Long Corp, subject to the following conditions:\n(i) Provision of additional collateral within 30 days of approval;\n(ii) Submission of monthly monitoring reports to the Risk team.\n\nMr. Duc recorded a dissenting view, citing concerns regarding sector concentration risk.\n\nAction items:\n- Legal team to prepare facility documentation by [date]. Owner: [Name]\n- Risk team to establish monitoring schedule. Owner: [Name]\n\nNext meeting: [Date]", "advanced": "CREDIT COMMITTEE \u2014 MINUTES OF MEETING\nDate: [Date] | Chair: [Name] | Quorum confirmed.\n\nAgenda Item 2: Hoang Long Corp Credit Facility\n\nThe Committee reviewed the credit proposal for a VND 200 billion term facility. Following deliberation, the proposal was approved in principle, subject to:\n(i) Pledge of additional collateral acceptable to the Risk function, to be completed within 30 calendar days;\n(ii) Mandatory monthly portfolio monitoring reports, effective from drawdown.\n\nDissent noted: Mr. Duc expressed a formal reservation regarding sector concentration exposure and requested that his dissent be recorded.\n\nActions:\n1. Legal: Draft facility agreement \u2014 due [date] \u2014 Owner: [Name]\n2. Risk: Establish monitoring framework \u2014 due [date] \u2014 Owner: [Name]\n3. Relationship Manager: Client communication re conditions \u2014 due [date]"},
+      vocab: [
+        {term: "resolved to", vi: "quy\u1ebft ngh\u1ecb / quy\u1ebft \u0111\u1ecbnh", reg: "formal/minutes"},
+        {term: "subject to", vi: "v\u1edbi \u0111i\u1ec1u ki\u1ec7n / ph\u1ee5 thu\u1ed9c v\u00e0o", reg: "formal"},
+        {term: "dissenting view", vi: "\u00fd ki\u1ebfn b\u1ea5t \u0111\u1ed3ng / phi\u1ebfu ch\u1ed1ng", reg: "governance"},
+        {term: "in principle", vi: "v\u1ec1 m\u1eb7t nguy\u00ean t\u1eafc", reg: "formal"},
+        {term: "quorum confirmed", vi: "\u0111\u1ee7 s\u1ed1 th\u00e0nh vi\u00ean h\u1ee3p l\u1ec7", reg: "governance"},
+        {term: "effective from drawdown", vi: "c\u00f3 hi\u1ec7u l\u1ef1c t\u1eeb ng\u00e0y gi\u1ea3i ng\u00e2n", reg: "banking/legal"},
+        {term: "formal reservation", vi: "b\u1ea3o l\u01b0u \u00fd ki\u1ebfn ch\u00ednh th\u1ee9c", reg: "governance"},
+      ],
+      errors: [
+        {wrong: "We talked about the loan and most people agreed.", right: "After deliberation, the Committee resolved to approve the credit facility.", why: "Bi\u00ean b\u1ea3n h\u1ecdp d\u00f9ng ng\u00f4n ng\u1eef th\u1ec3 ch\u1ebf, kh\u00f4ng ph\u1ea3i mi\u00eau t\u1ea3 c\u00e1 nh\u00e2n ('we talked', 'most people')"},
+        {wrong: "Mr. Duc didn't agree because he thinks it's too risky.", right: "Mr. Duc recorded a dissenting view, citing concerns regarding sector concentration risk.", why: "Bi\u00ean b\u1ea3n ghi nh\u1eadn s\u1ef1 ki\u1ec7n, kh\u00f4ng di\u1ec5n gi\u1ea3i c\u1ea3m x\u00fac hay \u00fd ki\u1ebfn c\u00e1 nh\u00e2n."},
+      ],
+      chart: {"type": "timeline", "title": "Credit Approval Process", "events": [{"date": "Step 1", "label": "Applications received & assessed", "status": "ok"}, {"date": "Step 2", "label": "Risk team review completed", "status": "ok"}, {"date": "Step 3", "label": "Credit Committee meeting \u2014 today", "status": "warn"}, {"date": "Step 4", "label": "Conditions fulfilment required", "status": "pending"}, {"date": "Step 5", "label": "Final approval & disbursement", "status": "pending"}]},
+    },
+    {
+      id: "wr-03", week: 7, phase: 2,
+      emoji: "\ud83d\udcc8", name: "Performance Memo",
+      desc: "Write a mid-year staff evaluation memo", badge: "writing",
+      difficulty: "intermediate",
+      cats: ["evaluating", "summary"],
+      warmup: {chartType: "dual", taskIdx: 0},
+      prompt: "Write a mid-year review memo for Relationship Manager Le Van Thanh, who exceeded revenue targets by 115% but had 3 compliance breaches recorded in the period \u2014 all minor, but a pattern is emerging.",
+      task: "Write a balanced, professional memo (100\u2013150 words). Recognize the achievement, address the compliance concern directly, and set clear expectations.",
+      model: {"intermediate": "MEMORANDUM\nTo: Le Van Thanh, Relationship Manager\nFrom: [Name], [Title]\nDate: [Date]\nRe: Mid-Year Performance Review \u2014 H1 2024\n\nThis memo records the outcomes of your mid-year performance review.\n\nRevenue performance in H1 2024 has been exceptional \u2014 115% of target is a remarkable result that places you among the top performers in the team.\n\nHowever, three compliance breaches were recorded during this period. While each incident was classified as minor, the frequency is concerning and represents a pattern we must address. Strong performance does not offset compliance risk.\n\nGoing forward, you are required to complete the refresher compliance training by [date] and maintain a breach-free record in H2.\n\nThis memo is for your personnel file.\n\n[Signature]"},
+      vocab: [
+        {term: "exceptional", vi: "xu\u1ea5t s\u1eafc, v\u01b0\u1ee3t tr\u1ed9i", reg: "formal"},
+        {term: "compliance breach", vi: "vi ph\u1ea1m tu\u00e2n th\u1ee7", reg: "banking/compliance"},
+        {term: "a pattern is emerging", vi: "m\u1ed9t xu h\u01b0\u1edbng \u0111ang h\u00ecnh th\u00e0nh", reg: "formal"},
+        {term: "does not offset", vi: "kh\u00f4ng b\u00f9 tr\u1eeb / kh\u00f4ng c\u00e2n b\u1eb1ng \u0111\u01b0\u1ee3c", reg: "formal"},
+        {term: "breach-free record", vi: "h\u1ed3 s\u01a1 kh\u00f4ng vi ph\u1ea1m", reg: "compliance"},
+        {term: "personnel file", vi: "h\u1ed3 s\u01a1 nh\u00e2n s\u1ef1", reg: "HR"},
+      ],
+      errors: [
+        {wrong: "You are very good at your job but you had some compliance problems.", right: "Revenue performance has been exceptional. However, three compliance breaches were recorded \u2014 a pattern that requires immediate attention.", why: "T\u00e1ch r\u00f5 hai nh\u1eadn x\u00e9t, kh\u00f4ng g\u1ed9p v\u00e0o m\u1ed9t c\u00e2u v\u1edbi 'but'. Memo trang tr\u1ecdng h\u01a1n."},
+      ],
+      chart: {"type": "bar-group", "title": "RM Mid-Year Scorecard", "labels": ["Revenue (VND B)", "AML On-Time %", "KYC Complete %"], "actual": [12.4, 82, 91], "target": [10.8, 100, 100], "higherIsBetter": [true, true, true], "note": "Revenue: v\u01b0\u1ee3t target \u00b7 Compliance: d\u01b0\u1edbi chu\u1ea9n"},
+    },
+    {
+      id: "wr-04", week: 7, phase: 2,
+      emoji: "\ud83d\udd14", name: "Risk Alert Memo",
+      desc: "Write an urgent risk notification to senior management", badge: "writing",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating"],
+      warmup: {chartType: "dual", taskIdx: 0},
+      prompt: "A key counterparty \u2014 Thanh Dat Group, one of your top-5 corporate clients \u2014 has been downgraded two notches by Fitch from BB+ to BB-. Your bank's total exposure is VND 1.2 trillion across 3 facilities. No payment default yet.",
+      task: "Write a concise risk alert memo (80\u2013120 words) to the CEO and CRO. Be direct, factual, and end with a clear recommended action.",
+      model: {"intermediate": "RISK ALERT \u2014 URGENT\nTo: CEO, CRO\nFrom: [Name]\nDate: [Date]\nRe: Counterparty Downgrade \u2014 Thanh Dat Group\n\nFitch has downgraded Thanh Dat Group from BB+ to BB- (two notches). Our total exposure stands at VND 1.2 trillion across three active facilities. No payment defaults have been recorded to date.\n\nThe two-notch downgrade signals a material deterioration in creditworthiness. While current facilities remain performing, the downgrade triggers a mandatory internal review under our credit policy.\n\nRecommended action: Convene an emergency credit review within 48 hours to assess exposure and determine whether covenant waivers or facility restructuring is required.", "advanced": "RISK ALERT \u2014 IMMEDIATE ATTENTION REQUIRED\nTo: CEO | CRO\nFrom: [Name], Head of Credit Risk\nDate: [Date]\n\nFitch Ratings has downgraded Thanh Dat Group by two notches to BB-, effective today. Our exposure totals VND 1.2 trillion across three facilities; all currently performing.\n\nA two-notch downgrade is a material credit event. Under our Watch-List Policy (Section 4.2), this triggers mandatory escalation and a 5-day review window.\n\nI recommend an emergency credit committee be convened within 48 hours to: (i) reassess facility risk grades; (ii) evaluate covenant compliance; (iii) determine whether additional security is required.\n\nI will circulate a full exposure summary by COB today."},
+      vocab: [
+        {term: "material credit event", vi: "s\u1ef1 ki\u1ec7n t\u00edn d\u1ee5ng tr\u1ecdng y\u1ebfu", reg: "banking/legal"},
+        {term: "creditworthiness", vi: "m\u1ee9c \u0111\u1ed9 t\u00edn nhi\u1ec7m t\u00edn d\u1ee5ng", reg: "banking"},
+        {term: "covenant waiver", vi: "mi\u1ec5n \u0111i\u1ec1u ki\u1ec7n r\u00e0ng bu\u1ed9c h\u1ee3p \u0111\u1ed3ng", reg: "banking/legal"},
+        {term: "covenant compliance", vi: "tu\u00e2n th\u1ee7 c\u00e1c \u0111i\u1ec1u ki\u1ec7n r\u00e0ng bu\u1ed9c", reg: "banking"},
+        {term: "effective today", vi: "c\u00f3 hi\u1ec7u l\u1ef1c t\u1eeb h\u00f4m nay", reg: "formal"},
+        {term: "COB", vi: "close of business \u2014 cu\u1ed1i gi\u1edd l\u00e0m vi\u1ec7c", reg: "business abbreviation"},
+        {term: "circulate", vi: "g\u1eedi / ph\u00e2n ph\u1ed1i (t\u00e0i li\u1ec7u)", reg: "formal business"},
+      ],
+      errors: [
+        {wrong: "Thanh Dat Group's credit rating went down and this is very serious.", right: "Fitch has downgraded Thanh Dat Group by two notches \u2014 a material credit event requiring immediate action.", why: "Memo r\u1ee7i ro c\u1ea7n: ai downgrade (agency), bao nhi\u00eau notch, k\u1ebft lu\u1eadn h\u00e0nh \u0111\u1ed9ng. Kh\u00f4ng \u0111\u01b0\u1ee3c m\u01a1 h\u1ed3."},
+        {wrong: "We should do something about this as soon as possible.", right: "I recommend an emergency credit review within 48 hours.", why: "'As soon as possible' qu\u00e1 m\u01a1 h\u1ed3. Memo r\u1ee7i ro c\u1ea7n timeline c\u1ee5 th\u1ec3: '48 hours', 'by COB today', 'within 5 business days'."},
+      ],
+      chart: {"type": "timeline", "title": "Counterparty Credit Deterioration", "events": [{"date": "Q1 2024", "label": "Rating Ba2 \u2014 Stable outlook", "status": "ok"}, {"date": "Q2 2024", "label": "Outlook revised to Negative", "status": "warn"}, {"date": "Oct 2024", "label": "Downgraded to B1", "status": "warn"}, {"date": "Now", "label": "Downgraded to B2 \u2014 Alert triggered", "status": "bad"}]},
+    },
+    {
+      id: "wr-05", week: 11, phase: 3,
+      emoji: "📋", name: "Board Report — Chart Summary",
+      desc: "Write the KPI section of a quarterly board report covering all 4 charts", badge: "writing",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating", "summary"],
+      warmup: {chartType: "pie", taskIdx: 2},
+      prompt: "Write the 'Key Performance Indicators' section for a quarterly board report. Cover four data points: (1) NPL ratio — VCB 2.8% vs industry 2.9%, gap narrowed to 10bp; (2) NIM — sector avg 3.75%, TCB outlier at 4.9%; (3) Loan portfolio — mortgage at 38%, concentration risk; (4) Credit growth vs NPL — the 2-year lag pattern. Overall assessment: cautiously watchful.",
+      task: "Write 180–220 words in formal board report style. Each data point gets 2–3 sentences. Use passive voice where appropriate. End with one forward-looking statement. Full prose only — no bullet points.",
+      model: {"subject": "Q3 2024 Board Report — Key Performance Indicators", "body_intermediate": "ASSET QUALITY\nThe Group's non-performing loan ratio stood at 2.8% as at end-Q3 2024, remaining marginally below the industry average of 2.9%. However, the gap has narrowed significantly — from 70 basis points in 2021 to 10 basis points at present — a trend that warrants monitoring.\n\nNET INTEREST MARGIN\nSector NIM averaged 3.75% in Q3 2024. A material divergence between state-owned banks (average 3.13%) and private banks (average 4.35%) was observed. Techcombank recorded the highest NIM at 4.9%, representing a 115 basis point premium to the sector average.\n\nPORTFOLIO COMPOSITION\nMortgage lending accounts for 38% of the total loan book — above the sector norm of 25–30%. This concentration level is considered elevated and is subject to ongoing risk monitoring.\n\nCREDIT CYCLE DYNAMICS\nAnalysis of the five-year credit and NPL trend confirms a credit quality lag of approximately two years. The acceleration in credit growth recorded in 2022 is now reflected in deteriorating NPL figures. Management will monitor origination quality closely as credit growth re-accelerated to 14.2% in 2024.", "body_advanced": "ASSET QUALITY\nThe Group's NPL ratio of 2.8% remains below the industry benchmark of 2.9%; however, the quality differential has compressed from 70 basis points in 2021 to 10 basis points — a structural deterioration that cannot be attributed solely to market conditions.\n\nSECTOR NIM DISPERSION\nNIM dispersion widened in Q3 2024, with private banks generating 122 basis points more than state-owned counterparts. Techcombank's NIM of 4.9% represents a material premium to the sector average of 3.75%, suggesting concentrated pricing power and, potentially, elevated risk appetite.\n\nCONCENTRATION RISK\nMortgage lending represents 38% of total loans outstanding — 8 to 13 percentage points above reported sector norms. The Risk Committee has requested a portfolio rebalancing review before Q1 2025 targets are finalised.\n\nCREDIT QUALITY OUTLOOK\nHistorical data confirm a two-year lag between credit growth peaks and NPL deterioration. Given the re-acceleration of credit growth to 14.2% in 2024, the Board should anticipate continued NPL pressure through 2026."},
+      vocab: [
+        {term: "credit quality differential", vi: "khoảng cách chất lượng tín dụng", reg: "banking"},
+        {term: "material divergence", vi: "sự khác biệt đáng kể", reg: "formal"},
+        {term: "portfolio rebalancing", vi: "tái cơ cấu danh mục", reg: "banking"},
+        {term: "origination quality", vi: "chất lượng khoản vay tại thời điểm giải ngân", reg: "banking"},
+        {term: "structural deterioration", vi: "suy giảm có tính cấu trúc", reg: "analytical"},
+      ],
+      errors: [
+        {wrong: "The NPL ratio went up and the gap is now very small.", right: "The quality differential has compressed from 70 basis points in 2021 to 10 basis points — a structural deterioration that warrants management attention.", why: "Board report cần passive và formal nouns. Không dùng 'went up' hay 'very small'."},
+        {wrong: "Mortgage is 38% which is a lot. We need to watch this.", right: "Mortgage lending at 38% of total loans outstanding represents an elevated concentration — 8 to 13 percentage points above sector norms.", why: "Tránh 'a lot' và 'we need to'. Dùng số cụ thể so với benchmark."},
+      ],
+      chart: {"type": "bar-group", "title": "Board Report KPIs — Q3 2024", "labels": ["VCB NPL %", "Sector NPL %", "Private NIM %", "State NIM %", "Mortgage %"], "actual": [2.8, 2.9, 4.35, 3.13, 38], "target": [2.1, 2.1, 4.0, 3.5, 30], "higherIsBetter": [false, false, true, true, false], "note": "4 charts condensed into 1 board summary"},
+    },
+    {
+      id: "wr-06", week: 12, phase: 3,
+      emoji: "🏆", name: "Final Assessment — Writing",
+      desc: "Choose your format and demonstrate executive writing at board level", badge: "writing",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating", "summary"],
+      warmup: {chartType: "dual", taskIdx: 2},
+      prompt: "This is your final writing assessment. Choose ONE: (A) Executive email to the CEO summarising Q4 performance — 100 words, subject line required; (B) Meeting minutes for a Credit Committee that approved a VND 500 billion facility with conditions — 130 words; (C) Risk alert memo to the CRO about a corporate client downgraded two notches — 90 words, urgent register.",
+      task: "Write your chosen format with full attention to register, structure, and word choice. Your assessor will evaluate: correct format, appropriate register, precise vocabulary, and a clear action or recommendation.",
+      model: {"subject": "Final Assessment — Option A: Q4 Executive Email", "body_intermediate": "Subject: Q4 2024 Performance Summary — For Your Review\n\nDear [Name],\n\nQ4 results confirm a year of solid commercial delivery with one area requiring sustained focus.\n\nCredit growth reached 13.8%, in line with our revised full-year target. NIM held at 3.4%. However, the NPL ratio ended the year at 2.8% — 70 basis points above the prior year — and remains the key risk metric for 2025.\n\nI recommend we convene a credit quality review in January before finalising Q1 growth targets.\n\nBest regards,\n[Your name]", "body_advanced": "OPTION B — Credit Committee Minutes:\n\nCREDIT COMMITTEE — MINUTES OF MEETING\nDate: [Date] | Chair: [Name] | Quorum confirmed\n\nAgenda Item 1: Credit Facility — [Client Name]\n\nThe Committee resolved to approve a VND 500 billion term facility, subject to: (i) pledge of additional collateral within 30 calendar days; (ii) monthly portfolio monitoring reports effective from drawdown.\n\nMr. [Name] recorded a formal reservation regarding sector concentration risk.\n\nActions:\n1. Legal: Prepare facility agreement — due [date] — Owner: [Name]\n2. Risk: Establish monitoring schedule — due [date] — Owner: [Name]"},
+      vocab: [
+        {term: "in line with revised target", vi: "phù hợp với mục tiêu đã điều chỉnh", reg: "executive"},
+        {term: "convene a review", vi: "triệu tập buổi xem xét", reg: "formal"},
+        {term: "formal reservation", vi: "bảo lưu ý kiến chính thức", reg: "governance"},
+        {term: "effective from drawdown", vi: "có hiệu lực từ ngày giải ngân", reg: "banking/legal"},
+        {term: "quorum confirmed", vi: "đủ số thành viên hợp lệ", reg: "governance"},
+      ],
+      errors: [
+        {wrong: "I am writing this email to tell you about the Q4 results.", right: "Q4 results confirm a year of solid commercial delivery — with one area requiring sustained focus.", why: "Email assessment — câu đầu phải là verdict/thông tin, không phải giới thiệu."},
+        {wrong: "Please let me know what you think.", right: "I recommend we convene a credit quality review before finalising Q1 targets.", why: "Close bằng action cụ thể — không kết thúc bằng câu hỏi mở trong executive email."},
+      ],
+      chart: {"type": "spider", "title": "Writing Assessment Rubric", "labels": ["Register", "Format", "Vocabulary", "Content", "Recommendation"], "actual": [0,0,0,0,0], "target": [35,20,20,15,10], "note": "Giáo viên điền điểm sau khi học viên hoàn thành"},
+    },
+  ],
+  combo: [
+    {
+      id: "cb-01", week: 8, phase: 2,
+      emoji: "\ud83d\udcb9", name: "H1 Results Presentation",
+      desc: "Report half-year banking results \u2014 spoken then written", badge: "both",
+      difficulty: "intermediate",
+      cats: ["commenting", "evaluating", "summary"],
+      warmup: {chartType: "dual", taskIdx: 1},
+      prompt: "Half-year results: Revenue up 18% YoY. Cost-to-income ratio improved to 42%. NPL ratio at 2.2%, down from 2.6%. However, a major corporate client is showing early warning signs \u2014 missed one payment, under watch-list monitoring.",
+      task: "First, prepare what you would say verbally to your Board of Directors (3\u20134 minutes). Then, write a formal written summary suitable for the H1 annual report.",
+      register_contrast: {"spoken": "More conversational, uses rhetorical pauses, addresses audience directly ('I want to draw your attention to\u2026'), can use shorter sentences", "written": "Formal passive constructions, precise data presentation, paragraph structure, no direct address, hedged language"},
+      model_spoken: "Good morning, everyone. I want to open by saying that H1 2024 has delivered results we can be proud of \u2014 but I also want to make sure we leave this room with a clear view of where we need to stay vigilant.\n\nThe headline numbers are strong. Revenue grew 18% year-on-year, and our cost-to-income ratio improved to 42% \u2014 that reflects real operational discipline, and I want to recognise the team for it. On credit quality, the NPL ratio actually improved from 2.6% to 2.2%, which is a meaningful move in the right direction.\n\nThat said, I need to flag one developing situation. One of our major corporate clients has missed a payment and is now under watch-list monitoring. It's too early to quantify the impact, but I want this committee to be aware, and I'd like the risk team to brief us in detail at our next session.",
+      model_written: "HALF-YEAR PERFORMANCE SUMMARY \u2014 H1 2024\n\nThe Group delivered a strong first-half performance, with revenue increasing 18% year-on-year to [figure]. The cost-to-income ratio improved by [X]pp to 42%, reflecting continued operational efficiency gains.\n\nAsset quality showed improvement over the period: the non-performing loan ratio declined from 2.6% to 2.2%, driven by active portfolio management and improved collections performance.\n\nOne item warrants ongoing monitoring: a major corporate client has been placed under watch-list classification following a missed interest payment. While the exposure is currently classified as performing, the Group is conducting a detailed credit assessment to determine whether additional provisions are required.\n\nOverall, the first half represents a solid operational performance. Management remains focused on sustaining commercial momentum while actively managing the emerging credit risk outlined above.",
+      chart: {"type": "bar-group", "title": "H1 2024 \u2014 Key Performance Indicators", "labels": ["Revenue Growth %", "CIR %", "NPL %", "Provision Coverage %"], "actual": [18, 42, 2.2, 88], "target": [14, 46, 2.6, 80], "higherIsBetter": [true, false, false, true], "note": "T\u1ea5t c\u1ea3 4 ch\u1ec9 s\u1ed1 \u0111\u1ec1u t\u1ed1t h\u01a1n k\u1ef3 tr\u01b0\u1edbc"},
+    },
+    {
+      id: "cb-02", week: 9, phase: 3,
+      emoji: "\ud83e\udd1d", name: "M&A Opportunity Assessment",
+      desc: "Evaluate a potential merger \u2014 brief CEO then write recommendation", badge: "both",
+      difficulty: "advanced",
+      cats: ["evaluating", "summary", "meeting"],
+      warmup: {chartType: "line", taskIdx: 2},
+      prompt: "A regional bank (Bank B) has approached your bank for a potential merger. Potential synergies: combined distribution network of 450 branches, cross-selling opportunities. Concerns: Bank B's NPL ratio is 4.1% (versus your 2.8%), their core banking system is outdated, and cultural integration risk is high.",
+      task: "Verbally brief your CEO in a 2-minute elevator pitch on your assessment. Then write a one-page written recommendation memo.",
+      register_contrast: {"spoken": "Direct opinion delivery ('My view is\u2026'), headline first, key risks and opportunities verbally flagged, uses pauses for emphasis", "written": "Structured with clear sections, balanced assessment format, formal recommendation, hedged where appropriate"},
+      model_spoken: "I've reviewed the Bank B proposal and I want to give you my honest assessment. The strategic logic is sound \u2014 combined we'd have 450 branches and meaningful cross-sell potential. But I have three concerns that I think make this a high-risk proposition at current pricing.\n\nFirst, their NPL ratio of 4.1% means we'd be importing a significant credit quality problem. Second, their core banking infrastructure is not fit for purpose \u2014 integration would be costly and disruptive. Third, and this one concerns me most, the cultural gap between our institutions is significant.\n\nMy recommendation: don't walk away, but don't rush. We need a full due diligence \u2014 credit review, IT assessment, and management interviews \u2014 before we can properly value this. I'd put a conditional 60-day exclusivity at most.",
+      model_written: "MEMORANDUM \u2014 CONFIDENTIAL\nTo: CEO\nFrom: [Name]\nRe: Bank B Merger Opportunity \u2014 Preliminary Assessment\n\nEXECUTIVE SUMMARY\nThe proposed merger with Bank B presents a strategically compelling but operationally complex opportunity. This memo sets out a preliminary assessment and recommended next steps.\n\nSTRATEGIC RATIONALE\nA combined entity would create a network of approximately 450 branches, establishing a leading retail presence in [region]. Cross-selling synergies across the combined customer base are estimated to be material, particularly in wealth management and SME banking.\n\nKEY CONCERNS\n1. Credit quality: Bank B's NPL ratio of 4.1% is significantly above our own 2.8%. Absorbing this portfolio would increase our consolidated NPL ratio and may require significant additional provisions.\n2. Technology: Bank B's core banking system is outdated and would require substantial investment to integrate or replace, creating execution risk and cost uncertainty.\n3. Cultural alignment: Preliminary discussions suggest meaningful differences in risk culture and management style, which represents an integration risk that should not be underestimated.\n\nRECOMMENDATION\nIt is recommended that the Group proceed to a structured due diligence phase, with a focus on credit portfolio quality, technology architecture, and management assessment. Exclusivity, if granted, should not exceed 60 days. A decision to proceed beyond due diligence should be contingent on the credit quality findings being within acceptable parameters.",
+      chart: {"type": "compare", "title": "Bank A vs Bank B \u2014 Diagnostic", "options": ["Bank A (Us)", "Bank B (Target)"], "dimensions": ["NPL Quality", "NIM Level", "CIR Efficiency", "Branch Scale", "Capital"], "scores": [[72, 65, 78, 60, 85], [35, 72, 55, 90, 48]], "note": "Score 0\u2013100 \u00b7 Higher = stronger position"},
+    },
+    {
+      id: "cb-03", week: 10, phase: 3,
+      emoji: "\ud83d\udcc9", name: "Market Crisis Response",
+      desc: "Respond to a bond market shock \u2014 internal briefing then external comms", badge: "both",
+      difficulty: "advanced",
+      cats: ["commenting", "evaluating", "meeting"],
+      warmup: {chartType: "bar", taskIdx: 2},
+      prompt: "There has been a sudden 15% drop in bond prices across the Vietnamese market, triggered by an unexpected central bank announcement. Your bank's treasury book has mark-to-market losses of VND 800 billion. The positions are within VaR limits. Media inquiries are incoming.",
+      task: "Verbally address your treasury and risk team in an emergency call (focus on factual assessment and next steps). Then draft external talking points for the communications team.",
+      register_contrast: {"spoken": "Calm, factual, action-oriented, no speculation, addresses team directly with clear next steps", "written": "Reassuring but measured, avoids speculation, sticks to facts, emphasizes risk management framework"},
+      model_spoken: "Thank you all for joining on short notice. I want to start by making sure we have the facts before we do anything else.\n\nHere is what we know: the 15% bond market movement has resulted in mark-to-market losses of approximately VND 800 billion on our treasury book. I want to be clear \u2014 these are unrealised losses. Our positions are within VaR limits, our liquidity position is strong, and there is no immediate solvency concern.\n\nHere is what I need from this team in the next four hours: a full position reconciliation, a scenario analysis of a further 5% and 10% market move, and a review of any positions approaching stop-loss triggers. Nothing is to be sold or hedged without my approval.\n\nWe will reconvene at 3pm with a full picture. Does anyone have information that changes my understanding of the current position?",
+      model_written: "EXTERNAL TALKING POINTS \u2014 TREASURY BOOK EXPOSURE\n[For communications team use \u2014 not for direct distribution]\n\nKEY MESSAGE: The Group's financial position remains sound. The current market volatility is being actively managed within our established risk framework.\n\nTALKING POINTS:\n\n1. 'We are aware of the current market volatility and are closely monitoring our portfolio.'\n\n2. 'Our positions remain within our established risk management parameters, including Value-at-Risk limits approved by our Board Risk Committee.'\n\n3. 'Any mark-to-market movements reflect normal market fluctuations and do not represent realised losses or impact our operational liquidity.'\n\n4. 'We maintain robust liquidity buffers and our capital position remains well above regulatory requirements.'\n\n5. 'We are not able to comment on specific portfolio details, but we remain confident in the resilience of our balance sheet.'\n\nDO NOT SPECULATE on: market direction, duration of volatility, specific position sizes, or Central Bank policy intentions.\n\nESCALATION: All media inquiries to be routed to [Communications team] before any response is issued.",
+      chart: {"type": "timeline", "title": "Crisis Timeline \u2014 Today", "events": [{"date": "08:30", "label": "SBV announcement released", "status": "warn"}, {"date": "09:00", "label": "Bond prices begin falling", "status": "warn"}, {"date": "10:15", "label": "15% drop \u2014 MTM loss VND 800B", "status": "bad"}, {"date": "10:30", "label": "VaR limits checked \u2014 within threshold", "status": "ok"}, {"date": "Now", "label": "Emergency risk team call convened", "status": "bad"}]},
+    },
+  ],
+};
+
+const CHART_DATA_DESC = {
+  line: `Line chart: VCB NPL ratio vs Industry Average (2019–2024). VCB: 2019=1.6%, 2020=1.4%, 2021=1.2%, 2022=1.9%, 2023=2.4%, 2024=2.8%. Industry avg: 2019=2.0%, 2020=2.1%, 2021=1.8%, 2022=2.5%, 2023=3.1%, 2024=2.9%. Gap narrowed from -0.7pp (2020) to just -0.1pp (2024). VCB was outperforming sector but advantage is rapidly eroding.`,
+  bar: `Horizontal bar chart: Net Interest Margin (NIM) by bank — Q3 2024. State-owned: VCB=3.4%, BIDV=3.1%, Agribank=2.9%. Private: TCB=4.9%, VPB=4.5%, MBB=4.2%, ACB=3.8%. Sector avg NIM: 3.75%. State-owned avg: 3.13%. Private avg: 4.35%. TCB is outlier at 4.9% — 115bp above sector avg.`,
+  pie: `Doughnut chart: Loan portfolio composition — Retail Bank 2024. Total: VND 285,000 billion. Mortgage 38% (108,300B), Corporate 25% (71,250B), SME 18% (51,300B), Auto 9% (25,650B), Personal 6% (17,100B), Other 4% (11,400B). Mortgage at 38% exceeds sector norm of 25–30%. SME at 18% is below strategic target of 25%.`,
+  dual: `Dual-axis chart: Credit growth % (bars, left axis) vs NPL ratio % (line, right axis) — 2020–2024. Credit growth: 2020=10.4%, 2021=13.5%, 2022=14.8% (peak), 2023=10.1%, 2024=14.2%. NPL ratio: 2020=1.4%, 2021=1.2%, 2022=1.5%, 2023=2.1%, 2024=2.8%. Key insight: NPL deterioration lags credit growth peak by ~2 years — the credit quality lag concept.`
+};
+
+const CHART_TASKS_FALLBACK = {
+  line: [
+    { id:"chart-line-1", week:1,  level:"IELTS Task 1", task:"Describe the overall trend of VCB's NPL ratio from 2019 to 2024. Highlight the most significant change and compare it to the industry average." },
+    { id:"chart-line-2", week:4,  level:"Analytical",   task:"Identify the year with the widest gap between VCB and the industry average. What might explain this divergence? What does it suggest about VCB's credit strategy?" },
+    { id:"chart-line-3", week:9,  level:"Board-level",  task:"Summarise the NPL chart in 3–4 sentences as if presenting to a credit risk committee. Include one implication for the bank's provisioning strategy." }
+  ],
+  bar: [
+    { id:"chart-bar-1",  week:2,  level:"IELTS Task 1", task:"Compare the NIM figures across all banks. Group your observations by ownership type (state-owned vs private) and draw one conclusion about the sector." },
+    { id:"chart-bar-2",  week:5,  level:"Analytical",   task:"Identify the outlier in this NIM chart. What does a significantly higher NIM suggest about that bank's pricing strategy or risk appetite? Is it sustainable?" },
+    { id:"chart-bar-3",  week:10, level:"Board-level",  task:"Write a 3-sentence executive commentary on NIM dispersion across the sector. Include a strategic implication for a bank considering entering the retail segment." }
+  ],
+  pie: [
+    { id:"chart-pie-1",  week:3,  level:"IELTS Task 1", task:"Describe the loan portfolio composition. Identify the dominant segment and comment on any notably small or large segments compared to sector norms." },
+    { id:"chart-pie-2",  week:6,  level:"Analytical",   task:"What does the portfolio composition suggest about this bank's strategic priorities? Identify at least one concentration risk and explain the potential consequence." },
+    { id:"chart-pie-3",  week:11, level:"Board-level",  task:"Summarise this portfolio breakdown in 2–3 sentences suitable for a Risk Committee report. Include a recommendation on one segment that warrants closer monitoring." }
+  ],
+  dual: [
+    { id:"chart-dual-1", week:4,  level:"IELTS Task 1", task:"Describe the relationship between credit growth and NPL ratio over the five-year period. Is there a visible pattern or lag between the two variables?" },
+    { id:"chart-dual-2", week:7,  level:"Analytical",   task:"2023–2024 shows rising NPL despite slowing credit growth. What does this suggest about loan vintage quality? What should management prioritise?" },
+    { id:"chart-dual-3", week:12, level:"Board-level",  task:"Write a 4-sentence board-level commentary on the credit cycle shown in this chart. Include the credit quality lag concept and a forward-looking strategic recommendation." }
+  ]
+};
+
+const CHART_PHRASES = [
+  'Overall, there is a clear upward/downward trend in…',
+  'What stands out here is…',
+  'The most striking feature is…',
+  'Notably, [metric] peaked at [figure] in [year].',
+  '[A] accounts for the largest proportion at [X]%.',
+  'There is a marked difference between…',
+  'The gap widened/narrowed to…',
+  'This trend raises a critical question:',
+  'This may be attributable to…',
+  '…suggesting that [implication].',
+  'A [X]pp deterioration in…',
+  'The dual-axis chart reveals a lagged relationship between…',
+];
+
+let PHRASES = {};
+let CHART_TASKS = { line:[], bar:[], pie:[], dual:[] };
+
+const SCENARIO_WEEK_MAP = {};
+[...SCENARIOS.speaking, ...SCENARIOS.writing, ...SCENARIOS.combo].forEach(s => {
+  SCENARIO_WEEK_MAP[s.id] = s.week;
+});
+
+/* ═══════════════════════════════════════════════
+   DATA LOADER
+═══════════════════════════════════════════════ */
+const PHRASES_FB = {
+  commenting:[{en:'What stands out here is…',vi:'Điều nổi bật ở đây là…'},{en:'The figures suggest that…',vi:'Số liệu cho thấy rằng…'},{en:'Notably, we are seeing…',vi:'Đáng chú ý là chúng ta đang thấy…'},{en:'This is broadly in line with…',vi:'Điều này nhìn chung phù hợp với…'},{en:'…warrants attention.',vi:'…cần được chú ý.'},{en:'A [X]pp deterioration in…',vi:'Sự suy giảm [X] điểm % trong…'}],
+  evaluating:[{en:'On balance, I would say…',vi:'Nhinh tổng thể, tôi cho rằng…'},{en:'The key issue here is…',vi:'Vấn đề cốt lõi ở đây là…'},{en:'This falls short of expectations in…',vi:'Điều này chưa đáp ứng kỳ vọng về…'},{en:'I would assess this as…',vi:'Tôi đánh giá đây là…'},{en:'The critical unknown is…',vi:'Điều chưa biết quan trọng nhất là…'}],
+  summary:[{en:'Here is where I land:',vi:'Đây là kết luận của tôi:'},{en:'The bottom line is…',vi:'Điểm mấu chốt là…'},{en:'Moving forward, the priority is…',vi:'Tiến về phía trước, ưu tiên là…'},{en:'[Name] will own [task], due [date].',vi:'Giao việc: ai làm gì, khi nào'}],
+  meeting:[{en:"I'd like to open the floor to…",vi:'Tôi muốn mở rộng thảo luận sang…'},{en:'For clarity, what we\'re deciding is…',vi:'Để rõ ràng, những gì chúng ta đang quyết định là…'},{en:"I'd like to move us to a conclusion.",vi:'Tôi muốn đưa chúng ta đến kết luận.'}],
+  hedging:[{en:'It appears that…',vi:'Có vẻ như…'},{en:'Broadly in line with…',vi:'Nhinh chung phù hợp với…'},{en:'Pending a full assessment,',vi:'Trong khi chờ đánh giá đầy đủ,'},{en:'Our preliminary view is…',vi:'Quan điểm sơ bộ của chúng tôi là…'}],
+  cause_effect:[{en:'This is largely driven by…',vi:'Điều này chủ yếu được thúc đẩy bởi…'},{en:'This can be attributed to…',vi:'Điều này có thể được quy cho…'},{en:'Left unaddressed, this could…',vi:'Nếu không xử lý, điều này có thể…'}],
+  chart_language:[{en:'Overall, there is a clear trend in…',vi:'Nhinh tổng thể, có xu hướng rõ ràng trong…'},{en:'[A] accounts for the largest proportion at [X]%.',vi:'[A] chiếm tỷ trọng lớn nhất ở [X]%.'},{en:'The gap widened/narrowed to…',vi:'Khoảng cách nới rộng/thu hẹp xuống còn…'}],
+};
+
+async function loadData() {
+  try {
+    const [pbRes, ctRes] = await Promise.all([
+      fetch('data/phrase-bank.json'),
+      fetch('data/chart-tasks.json'),
+    ]);
+    PHRASES = pbRes.ok ? await pbRes.json() : PHRASES_FB;
+    if (ctRes.ok) {
+      const ct = await ctRes.json();
+      CHART_TASKS = { line:ct.line||[], bar:ct.bar||[], pie:ct.pie||[], dual:ct.dual||[] };
+    } else {
+      CHART_TASKS = CHART_TASKS_FALLBACK;
+    }
+    Object.values(CHART_TASKS).flat().forEach(t => { SCENARIO_WEEK_MAP[t.id] = t.week; });
+  } catch(e) {
+    PHRASES = PHRASES_FB;
+    CHART_TASKS = CHART_TASKS_FALLBACK;
+    Object.values(CHART_TASKS).flat().forEach(t => { SCENARIO_WEEK_MAP[t.id] = t.week; });
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   STATE + UNLOCK SYSTEM
+═══════════════════════════════════════════════ */
+let currentScenario = {};
+let comboTab = 'speak';
+let sessions = JSON.parse(localStorage.getItem('eec_v2_sessions') || '[]');
+let unlockedIds = new Set(JSON.parse(localStorage.getItem('eec_unlocked') || '[]'));
+let sheetsConnected = false;
+
+// Fetch unlock config from Google Sheets on load
+function fetchUnlockConfig() {
+  if (!SHEETS_URL) return Promise.resolve();
+  return new Promise((resolve) => {
+    // JSONP để bypass CORS hoàn toàn
+    const cbName = 'eec_cb_' + Date.now();
+    const script = document.createElement('script');
+    let done = false;
+
+    window[cbName] = (json) => {
+      done = true;
+      script.remove();
+      delete window[cbName];
+      if (json && json.ok && json.data && json.data.unlocked) {
+        unlockedIds = new Set(json.data.unlocked);
+        localStorage.setItem('eec_unlocked', JSON.stringify(json.data.unlocked));
+        sheetsConnected = true;
+        const statusEl = document.getElementById('api-status-text');
+        const dotEl = document.querySelector('.status-dot');
+        if (statusEl) statusEl.textContent = 'Đã kết nối';
+        if (dotEl) dotEl.style.background = '#1D9E75';
+        rerenderScenarios();
+      }
+      resolve();
+    };
+
+    script.src = SHEETS_URL + '?action=get_unlock&callback=' + cbName;
+    script.onerror = () => {
+      if (!done) { done = true; script.remove(); delete window[cbName]; resolve(); }
+    };
+    setTimeout(() => {
+      if (!done) { done = true; script.remove(); delete window[cbName]; resolve(); }
+    }, 8000);
+    document.head.appendChild(script);
+  });
+}
+
+function isUnlocked(id) {
+  if (unlockedIds.size === 0) return true; // no config = show all (fallback)
+  return unlockedIds.has(id);
+}
+
+function rerenderScenarios() {
+  ['speaking','writing','combo'].forEach(type => {
+    const container = document.getElementById(type + '-scenarios');
+    if (container) { container.innerHTML = ''; renderScenarios(type); }
+  });
+  ['line','bar','pie','dual'].forEach(type => renderChartTask(type));
+}
+
+/* ═══════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════ */
+function showScreen(el, name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  el.classList.add('active');
+  if (name === 'progress') renderProgress();
+  if (name === 'phrases') renderPhraseLib();
+  if (name === 'settings') loadKeyStatus();
+}
+
+/* ═══════════════════════════════════════════════
+   SCENARIO RENDER
+═══════════════════════════════════════════════ */
+function renderScenarios(type) {
+  const container = document.getElementById(type + '-scenarios');
+  if (!container) return;
+  container.innerHTML = '';
+  // Sort by week so cards always appear in session order
+  const sorted = [...SCENARIOS[type]].sort((a, b) => (a.week||0) - (b.week||0));
+  sorted.forEach((s, i) => {
+    const origIdx = SCENARIOS[type].indexOf(s);
+    const locked = !isUnlocked(s.id);
+    const d = document.createElement('div');
+    d.className = 'scenario-card' + (locked ? ' locked' : '');
+    const badgeLabel = s.badge === 'both' ? 'Speaking + Writing' : s.badge.charAt(0).toUpperCase() + s.badge.slice(1);
+    const weekLabel = s.week ? `<span class="s-week">Buổi ${s.week}</span>` : '';
+    const diffTag = s.difficulty ? '<span class="s-diff s-diff-'+s.difficulty+'">'+s.difficulty+'</span>' : '';
+    d.innerHTML = `
+      <span class="s-badge b-${s.badge}">${badgeLabel}</span>
+      ${weekLabel}
+      <span class="s-emoji">${locked ? '🔒' : s.emoji}</span>
+      <div class="s-name">${s.name} ${diffTag}</div>
+      <div class="s-desc">${locked ? 'Giáo viên chưa mở bài này' : s.desc}</div>
+    `;
+    if (!locked) d.onclick = () => selectScenario(type, origIdx, d);
+    container.appendChild(d);
+  });
+}
+
+function selectScenario(type, idx, el) {
+  document.querySelectorAll(`#${type}-scenarios .scenario-card`).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  currentScenario[type] = SCENARIOS[type][idx];
+  const s = currentScenario[type];
+  const practice = document.getElementById(type + '-practice');
+  practice.style.display = 'block';
+
+  // Remove previous warmup panel if any
+  const oldWarmup = practice.querySelector('.warmup-panel');
+  if (oldWarmup) oldWarmup.remove();
+
+  // Insert warm-up chart panel at top of practice area
+  if (s.warmup) {
+    const warmupContainer = document.createElement('div');
+    practice.insertBefore(warmupContainer, practice.firstChild);
+    renderWarmupPanel(warmupContainer, s);
+  }
+
+  document.getElementById(type + '-prompt').innerHTML = `
+    <div class="prompt-label">Scenario — ${s.name}</div>
+    <div class="prompt-text">${s.prompt}</div>
+    <div class="prompt-task">📌 Your task: ${s.task}</div>
+  `;
+
+  const promptEl = document.getElementById(type + '-prompt');
+  // Remove previously injected chart/vocab blocks
+  practice.querySelectorAll('.scenario-chart-wrap,.scenario-vocab-wrap').forEach(e => e.remove());
+
+  // Chart block
+  if (s.chart) {
+    const chartEl = document.createElement('div');
+    chartEl.className = 'scenario-chart-wrap';
+    const canvasId = 'sc-canvas-' + type + idx;
+    chartEl.innerHTML = buildScenarioChart(s.chart, canvasId);
+
+    // Append glossary for this scenario inside the chart wrap
+    const glossaryHTML = buildScenarioGlossaryHTML(s.id);
+    if (glossaryHTML) chartEl.insertAdjacentHTML('beforeend', glossaryHTML);
+
+    promptEl.insertAdjacentElement('afterend', chartEl);
+    if (s.chart.type === 'bar-line' || s.chart.type === 'bar-group') drawBarChart(canvasId, s.chart);
+    else if (s.chart.type === 'spider') drawRadarChart(canvasId, s.chart);
+  }
+
+  // Vocab + Errors + Followups
+  practice.querySelectorAll('.scenario-vocab-wrap,.scenario-error-wrap,.scenario-followup-wrap').forEach(function(el){el.remove();});
+
+  if (s.vocab && s.vocab.length) {
+    const ve = document.createElement('div');
+    ve.className = 'card scenario-vocab-wrap';
+    const vr = s.vocab.map(function(v) {
+      const m = v.term.match(/^(.+?)([(][^)]+[)])(.*)$/);
+      const th = m ? m[1]+'<span class="vocab-abbr">'+m[2]+'</span>'+m[3] : v.term;
+      const rb = v.reg ? '<span class="vocab-reg">'+v.reg+'</span>' : '';
+      return '<div class="vocab-card"><div class="vocab-term">'+th+rb+'</div><div class="vocab-vi">'+v.vi+'</div></div>';
+    }).join('');
+    ve.innerHTML = '<div class="card-title"><span class="card-icon">📖</span> Key Vocabulary</div><div class="vocab-grid">'+vr+'</div>';
+    const ac = practice.querySelector('.scenario-chart-wrap') || promptEl;
+    ac.insertAdjacentElement('afterend', ve);
+  }
+
+  if (s.errors && s.errors.length) {
+    const ee = document.createElement('div');
+    ee.className = 'card scenario-error-wrap';
+    const er = s.errors.map(function(er2) {
+      return '<div class="error-item">'
+        +'<div class="err-label err-wrong-lbl">✗ Hay viết:</div>'
+        +'<div class="err-text err-wrong-text">'+er2.wrong+'</div>'
+        +'<div class="err-label err-right-lbl">✓ Nên dùng:</div>'
+        +'<div class="err-text err-right-text">'+er2.right+'</div>'
+        +'<div class="err-why">'+er2.why+'</div>'
+        +'</div>';
+    }).join('');
+    ee.innerHTML = '<div class="card-title"><span class="card-icon">⚠️</span> Common Errors</div><div style="display:flex;flex-direction:column;gap:10px">'+er+'</div>';
+    const av = practice.querySelector('.scenario-vocab-wrap') || practice.querySelector('.scenario-chart-wrap') || promptEl;
+    av.insertAdjacentElement('afterend', ee);
+  }
+
+  // Follow-ups moved to lesson-plan.html (teacher-only)
+
+
+  const phraseSets = s.cats.map(c => PHRASES[c] || []).flat();
+  const unique = phraseSets.filter((p, i, a) => a.findIndex(x => x.en === p.en) === i).slice(0, 10);
+  const taId = type === 'speaking' ? 'sp-textarea' : type === 'writing' ? 'wr-textarea' : null;
+  if (type === 'combo') {
+    renderPhrases('cb-sp-phrases', unique, 'cb-sp-textarea');
+    renderPhrases('cb-wr-phrases', unique, 'cb-wr-textarea');
+    document.getElementById('cb-sp-textarea').value = '';
+    document.getElementById('cb-wr-textarea').value = '';
+  } else {
+    renderPhrases(type + '-phrases', unique, taId);
+    document.getElementById(taId).value = '';
+  }
+  const fbId = type === 'speaking' ? 'sp-feedback' : type === 'writing' ? 'wr-feedback' : 'cb-feedback';
+  document.getElementById(fbId).classList.remove('on');
+  practice.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* ═══════════════════════════════════════════════
+   SCENARIO CHART RENDERING — diverse visual types
+═══════════════════════════════════════════════ */
+function buildScenarioChart(chart, canvasId) {
+  const title = `<div class="scenario-chart-title">📊 ${chart.title}</div>`;
+  const note  = chart.note ? `<div class="chart-note">${chart.note}</div>` : '';
+
+  // ── TIMELINE — vertical stepper ───────────────
+  if (chart.type === 'timeline') {
+    const rows = chart.events.map((e, i) => `
+      <div class="tl-row">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot-sc ${e.status}"></div>
+          ${i < chart.events.length - 1 ? '<div class="tl-line-sc"></div>' : ''}
+        </div>
+        <div class="tl-date">${e.date}</div>
+        <div class="tl-label">${e.label}</div>
+      </div>`).join('');
+    return title + `<div>${rows}</div>` + note;
+  }
+
+  // ── BAR-GROUP / BAR-LINE — horizontal metric rows ──────────
+  if (chart.type === 'bar-group' || chart.type === 'bar-line') {
+    const rows = chart.labels.map((lbl, i) => {
+      const actual = chart.actual[i];
+      const target = chart.target[i];
+      const hib    = chart.higherIsBetter ? chart.higherIsBetter[i] : true;
+      const good   = hib ? actual >= target : actual <= target;
+      const barCls = good ? 'bar-good' : 'bar-warn';
+      const maxVal = Math.max(actual, target) * 1.18;
+      const actualPct = Math.min((actual / maxVal) * 100, 100).toFixed(1);
+      const targetPct = Math.min((target / maxVal) * 100, 100).toFixed(1);
+      const diff    = actual - target;
+      const diffStr = (diff >= 0 ? '+' : '') + diff.toFixed(1);
+      const arrow   = good ? '▲' : '▼';
+      const diffColor = good ? '#1D9E75' : '#E24B4A';
+      return `
+        <div class="metric-row">
+          <div class="metric-label">${lbl}</div>
+          <div class="metric-track">
+            <div class="metric-bar ${barCls}" style="width:${actualPct}%"></div>
+            <div class="metric-target-marker" style="left:${targetPct}%" title="Target: ${target}"></div>
+          </div>
+          <div class="metric-values">
+            <span style="font-size:12px;font-weight:600">${actual}</span><br>
+            <span class="metric-target-lbl" style="color:${diffColor}">${arrow} ${Math.abs(diff).toFixed(1)}</span>
+          </div>
+        </div>`;
+    }).join('');
+    const legend = `<div style="display:flex;gap:16px;margin-bottom:10px;font-size:10px;color:var(--muted);align-items:center">
+      <span style="display:flex;align-items:center;gap:5px">
+        <span style="width:20px;height:7px;border-radius:3px;background:linear-gradient(90deg,#1D9E75,#26c48f);display:inline-block"></span>Actual
+      </span>
+      <span style="display:flex;align-items:center;gap:5px">
+        <span style="width:2px;height:14px;background:rgba(0,0,0,0.25);display:inline-block;border-radius:1px"></span>Target
+      </span>
+      <span style="margin-left:auto;font-size:10px">▲ = exceeded · ▼ = below</span>
+    </div>`;
+    return title + legend + rows + note;
+  }
+
+  // ── SPIDER — donut segments as scorecard ──────────────────
+  if (chart.type === 'spider') {
+    // Render as stat cards grid — much cleaner than radar at small size
+    const cards = chart.labels.map((lbl, i) => {
+      const actual = chart.actual[i];
+      const target = chart.target[i];
+      const good   = actual >= target;
+      const pct    = actual;
+      const color  = actual >= 80 ? '#1D9E75' : actual >= 60 ? '#185FA5' : '#E24B4A';
+      // Mini circular progress using conic-gradient
+      return `
+        <div style="text-align:center;padding:10px 6px">
+          <div style="
+            width:54px;height:54px;border-radius:50%;margin:0 auto 6px;
+            background:conic-gradient(${color} ${pct*3.6}deg, rgba(0,0,0,0.07) 0deg);
+            display:flex;align-items:center;justify-content:center;
+            position:relative">
+            <div style="
+              width:40px;height:40px;border-radius:50%;background:var(--surface);
+              display:flex;align-items:center;justify-content:center;
+              font-size:12px;font-weight:700;color:${color}">
+              ${actual}
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--slate);line-height:1.3">${lbl}</div>
+          <div style="font-size:10px;color:${good?'#1D9E75':'#E24B4A'};margin-top:2px">${good?'✓ OK':'✗ Low'}</div>
+        </div>`;
+    }).join('');
+    return title +
+      `<div style="display:grid;grid-template-columns:repeat(${chart.labels.length},1fr);gap:4px">${cards}</div>` +
+      `<div style="font-size:10px;color:var(--muted);margin-top:8px;text-align:center">Target: ${chart.target[0]} · Score out of 100</div>` +
+      note;
+  }
+
+  // ── COMPARE — grouped bar pairs per dimension ─────────────
+  if (chart.type === 'compare') {
+    const colors  = ['#185FA5', '#1D9E75'];
+    const legend  = chart.options.map((o, i) =>
+      `<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;
+        font-weight:500;color:${colors[i]};margin-right:14px">
+        <span style="width:10px;height:10px;border-radius:2px;background:${colors[i]};display:inline-block"></span>${o}
+       </span>`).join('');
+    const rows = chart.dimensions.map((dim, di) => {
+      const scores = chart.options.map((_,oi) => chart.scores[oi][di]);
+      const bars   = scores.map((val, oi) => `
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+          <div style="width:60px;font-size:10px;color:${colors[oi]};text-align:right;flex-shrink:0">
+            ${chart.options[oi].split(' ')[0]}
+          </div>
+          <div style="flex:1;height:8px;background:rgba(0,0,0,0.05);border-radius:4px;overflow:hidden">
+            <div style="height:100%;width:${val}%;background:${colors[oi]}cc;border-radius:4px;
+              transition:width .4s ease"></div>
+          </div>
+          <div style="font-size:10px;font-weight:600;color:${colors[oi]};width:24px">${val}</div>
+        </div>`).join('');
+      return `
+        <div style="margin-bottom:10px">
+          <div style="font-size:10px;font-weight:500;color:var(--slate);margin-bottom:4px">${dim}</div>
+          ${bars}
+        </div>`;
+    }).join('');
+    return title +
+      `<div style="margin-bottom:10px">${legend}</div>` +
+      `<div>${rows}</div>` + note;
+  }
+
+  return title +
+    `<div style="padding:20px;text-align:center;color:var(--muted);font-size:12px">📊 ${chart.type}</div>` +
+    note;
+}
+
+function drawBarChart(canvasId, chart) {}
+function drawRadarChart(canvasId, chart) {}
+
+function resetPractice(type) {
+  document.getElementById(type + '-practice').style.display = 'none';
+  document.querySelectorAll(`#${type}-scenarios .scenario-card`).forEach(c => c.classList.remove('selected'));
+  currentScenario[type] = null;
+}
+
+/* ═══════════════════════════════════════════════
+   PHRASE RENDER HELPERS
+═══════════════════════════════════════════════ */
+function renderPhrases(containerId, phrases, targetId) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  c.innerHTML = '';
+  phrases.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'phrase-chip';
+    btn.textContent = p.en;
+    btn.title = p.vi;
+    btn.onclick = () => insertPhrase(targetId, p.en);
+    c.appendChild(btn);
+  });
+}
+
+function insertPhrase(targetId, text) {
+  const ta = document.getElementById(targetId);
+  if (!ta) return;
+  ta.value = ta.value ? ta.value + ' ' + text : text + ' ';
+  ta.focus();
+}
+
+/* ═══════════════════════════════════════════════
+   MODES
+═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════
+   SPEECH RECOGNITION — Web Speech API
+═══════════════════════════════════════════════ */
+let recognition = null;
+let isRecording = false;
+let currentMicTarget = 'sp'; // 'sp' or 'cb'
+
+function initSpeechRecognition() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) return null;
+
+  const rec = new SpeechRecognition();
+  rec.lang = 'en-US';        // Tiếng Anh — phù hợp với mục đích luyện tập
+  rec.continuous = true;     // Tiếp tục nghe không ngắt
+  rec.interimResults = true; // Hiện text tạm thời trong khi nói
+  rec.maxAlternatives = 1;
+
+  rec.onstart = () => {
+    isRecording = true;
+    updateMicUI(true);
+  };
+
+  rec.onend = () => {
+    // Nếu vẫn muốn record (user chưa bấm dừng) thì restart
+    if (isRecording) {
+      try { rec.start(); } catch(e) { stopMic(); }
+    }
+  };
+
+  rec.onresult = (event) => {
+    const ta = document.getElementById(currentMicTarget === 'sp' ? 'sp-textarea' : 'cb-sp-textarea');
+    if (!ta) return;
+
+    let interim = '';
+    let final = '';
+
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      const transcript = event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        final += transcript + ' ';
+      } else {
+        interim = transcript;
+      }
+    }
+
+    // Thêm text đã xác nhận vào textarea
+    if (final) {
+      // Capitalise đầu câu nếu textarea đang trống hoặc kết thúc bằng dấu chấm
+      const current = ta.value;
+      const needsCap = current === '' || /[.!?]\s*$/.test(current);
+      const toAdd = needsCap ? final.charAt(0).toUpperCase() + final.slice(1) : final;
+      ta.value = (current + toAdd).trimStart();
+    }
+
+    // Hiện text tạm thời trong status
+    const statusEl = document.getElementById(currentMicTarget + '-mic-status');
+    if (statusEl && interim) {
+      statusEl.textContent = '…' + interim;
+      statusEl.style.color = '#8a95a3';
+    } else if (statusEl) {
+      statusEl.textContent = '● Đang nghe...';
+      statusEl.style.color = '#E24B4A';
+    }
+  };
+
+  rec.onerror = (event) => {
+    const statusEl = document.getElementById(currentMicTarget + '-mic-status');
+    let msg = '';
+    switch(event.error) {
+      case 'not-allowed':
+        msg = '⚠️ Chưa cấp quyền microphone — kiểm tra cài đặt trình duyệt'; break;
+      case 'no-speech':
+        msg = 'Không nghe thấy — thử lại'; break;
+      case 'network':
+        msg = '⚠️ Cần internet để dùng Speech Recognition'; break;
+      default:
+        msg = '⚠️ Lỗi: ' + event.error;
+    }
+    if (statusEl) { statusEl.textContent = msg; statusEl.style.color = '#E24B4A'; }
+    stopMic();
+  };
+
+  return rec;
+}
+
+function toggleMic(target) {
+  target = target || 'sp';
+  if (isRecording && currentMicTarget === target) {
+    stopMic();
+  } else {
+    if (isRecording) stopMic(); // dừng mic cũ nếu đang dùng
+    startMic(target);
+  }
+}
+
+function startMic(target) {
+  currentMicTarget = target || 'sp';
+
+  // Kiểm tra browser support
+  if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+    const statusEl = document.getElementById(currentMicTarget + '-mic-status');
+    if (statusEl) {
+      statusEl.textContent = '⚠️ Trình duyệt chưa hỗ trợ — dùng Chrome hoặc Edge';
+      statusEl.style.color = '#E24B4A';
+    }
+    return;
+  }
+
+  recognition = initSpeechRecognition();
+  if (!recognition) return;
+
+  isRecording = true;
+  try {
+    recognition.start();
+  } catch(e) {
+    console.log('Recognition start error:', e);
+  }
+}
+
+function stopMic() {
+  isRecording = false;
+  if (recognition) {
+    try { recognition.stop(); } catch(e) {}
+    recognition = null;
+  }
+  updateMicUI(false);
+}
+
+function updateMicUI(recording) {
+  // Speaking panel
+  const spBtn  = document.getElementById('sp-mic-btn');
+  const spIcon = document.getElementById('sp-mic-icon');
+  const spLbl  = document.getElementById('sp-mic-label');
+  const spStat = document.getElementById('sp-mic-status');
+  if (spBtn && currentMicTarget === 'sp') {
+    spBtn.classList.toggle('mic-recording', recording);
+    if (spIcon) spIcon.textContent = recording ? '⏹' : '🎙';
+    if (spLbl)  spLbl.textContent  = recording ? 'Dừng lại' : 'Bắt đầu nói';
+    if (spStat) {
+      spStat.textContent = recording ? '● Đang nghe...' : '';
+      spStat.style.color = '#E24B4A';
+    }
+  }
+  // Combo panel
+  const cbBtn  = document.getElementById('cb-mic-btn');
+  const cbIcon = document.getElementById('cb-mic-icon');
+  const cbLbl  = document.getElementById('cb-mic-label');
+  const cbStat = document.getElementById('cb-mic-status');
+  if (cbBtn && currentMicTarget === 'cb') {
+    cbBtn.classList.toggle('mic-recording', recording);
+    if (cbIcon) cbIcon.textContent = recording ? '⏹' : '🎙';
+    if (cbLbl)  cbLbl.textContent  = recording ? 'Dừng lại' : 'Bắt đầu nói';
+    if (cbStat) {
+      cbStat.textContent = recording ? '● Đang nghe...' : '';
+      cbStat.style.color = '#E24B4A';
+    }
+  }
+}
+
+function setSpMode(mode) {
+  document.getElementById('sp-txt-btn').classList.toggle('tb-active', mode === 'text');
+  document.getElementById('sp-voc-btn').classList.toggle('tb-active', mode === 'voice');
+
+  const micWrap  = document.getElementById('sp-mic-wrap');
+  const voiceHint = document.getElementById('sp-voice-hint');
+
+  if (mode === 'voice') {
+    // Hiện mic button
+    if (micWrap)   { micWrap.style.display = 'flex'; }
+    if (voiceHint) { voiceHint.style.display = 'block'; }
+    document.getElementById('sp-textarea').placeholder =
+      'Text từ giọng nói sẽ xuất hiện ở đây — hoặc bạn có thể tự gõ thêm...';
+
+    // Kiểm tra browser support và báo ngay
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      const s = document.getElementById('sp-mic-status');
+      if (s) {
+        s.textContent = '⚠️ Cần Chrome hoặc Edge để dùng tính năng này';
+        s.style.color = '#E24B4A';
+      }
+    }
+  } else {
+    // Ẩn mic, dừng nếu đang record
+    if (isRecording && currentMicTarget === 'sp') stopMic();
+    if (micWrap)   { micWrap.style.display = 'none'; }
+    if (voiceHint) { voiceHint.style.display = 'none'; }
+    document.getElementById('sp-textarea').placeholder =
+      'Viết câu trả lời như thể bạn đang nói — tự nhiên, trực tiếp, có trọng lượng...';
+  }
+}
+
+function setComboTab(tab) {
+  comboTab = tab;
+  document.getElementById('cb-sp-btn').classList.toggle('active', tab === 'speak');
+  document.getElementById('cb-wr-btn').classList.toggle('active', tab === 'write');
+  document.getElementById('cb-speak-panel').style.display = tab === 'speak' ? 'block' : 'none';
+  document.getElementById('cb-write-panel').style.display = tab === 'write' ? 'block' : 'none';
+}
+
+/* ═══════════════════════════════════════════════
+   API KEY
+═══════════════════════════════════════════════ */
+function getApiKey() { return 'AIzaSyCfVBYQ4_xGBzcwKYczQwXVq7wIN2pPkFU'; } // fixed
+
+function saveApiKey() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key) return;
+  localStorage.setItem('eec_apikey', key);
+  document.getElementById('key-status').textContent = '✓ Key saved';
+  document.getElementById('api-status-text').textContent = 'AI Ready';
+}
+
+function clearApiKey() {
+  localStorage.removeItem('eec_apikey');
+  document.getElementById('api-key-input').value = '';
+  document.getElementById('key-status').textContent = 'Key cleared.';
+}
+
+function loadKeyStatus() {
+  const k = getApiKey();
+  document.getElementById('api-key-input').value = k;
+  document.getElementById('key-status').textContent = k ? '✓ Key is saved' : 'No key saved yet.';
+
+  // Load student name
+  const sn = localStorage.getItem('eec_student_name') || '';
+  document.getElementById('student-name-input').value = sn;
+  document.getElementById('name-status').textContent = sn ? `✓ Tên đã lưu: ${sn}` : 'Chưa có tên.';
+
+  // Load sheets URL
+  const su = localStorage.getItem('eec_sheets_url') || '';
+  document.getElementById('sheets-url-input').value = su;
+  document.getElementById('sheets-status').textContent = su ? '✓ URL đã lưu — đang kiểm tra kết nối...' : 'Chưa kết nối.';
+  if (su) fetchUnlockConfig().then(() => {
+    document.getElementById('sheets-status').textContent = sheetsConnected
+      ? '✅ Kết nối thành công! Bài học đã được đồng bộ.'
+      : '⚠️ Không kết nối được — kiểm tra URL hoặc internet.';
+  });
+}
+
+function saveStudentName() {
+  const name = document.getElementById('student-name-input').value.trim();
+  if (!name) return;
+  localStorage.setItem('eec_student_name', name);
+  document.getElementById('name-status').textContent = `✓ Đã lưu: ${name}`;
+}
+
+function saveSheetsUrl() {
+  const url = document.getElementById('sheets-url-input').value.trim();
+  if (!url) return;
+  localStorage.setItem('eec_sheets_url', url);
+  document.getElementById('sheets-status').textContent = 'Đang kết nối...';
+  // Reload page to apply new URL
+  location.reload();
+}
+
+/* ═══════════════════════════════════════════════
+   GEMINI API CALL
+═══════════════════════════════════════════════ */
+async function callClaude(system, userContent) {
+  const key = getApiKey();
+  if (!key) throw new Error('NO_KEY');
+  let res;
+  try {
+    res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: system }] },
+          contents: [{ role: 'user', parts: [{ text: userContent }] }],
+          generationConfig: { maxOutputTokens: 8192, temperature: 0.7 }
+        })
+      }
+    );
+  } catch(fetchErr) {
+    throw new Error('Không kết nối được đến Gemini API. Kiểm tra mạng hoặc API key: ' + fetchErr.message);
+  }
+  const data = await res.json();
+  if (data.error) throw new Error('Gemini lỗi: ' + data.error.message);
+  const text = data.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
+  if (!text) throw new Error('Gemini trả về kết quả rỗng — thử lại');
+  return text;
+}
+
+/* ═══════════════════════════════════════════════
+   SUBMIT RESPONSES
+═══════════════════════════════════════════════ */
+const SYSTEM_PROMPT = `You are an executive English coach specialising in banking and finance professionals in Vietnam. Your student is a mid-level banking leader who needs to master professional English for commenting, evaluating, and summarizing. Give direct, coach-like feedback. Mix language: explanations in Vietnamese, language examples in English. Never over-praise.`;
+
+async function submitResponse(type) {
+  const s = currentScenario[type];
+  if (!s) return;
+  let userText = '';
+  if (type === 'combo') {
+    const sp = document.getElementById('cb-sp-textarea').value.trim();
+    const wr = document.getElementById('cb-wr-textarea').value.trim();
+    userText = `SPOKEN: ${sp || '[not provided]'}\n\nWRITTEN: ${wr || '[not provided]'}`;
+  } else {
+    const taId = type === 'speaking' ? 'sp-textarea' : 'wr-textarea';
+    userText = document.getElementById(taId).value.trim();
+  }
+  if (!userText || userText === 'SPOKEN: [not provided]\n\nWRITTEN: [not provided]') return;
+
+  const loadId = type === 'speaking' ? 'sp-loading' : type === 'writing' ? 'wr-loading' : 'cb-loading';
+  const fbId   = type === 'speaking' ? 'sp-feedback' : type === 'writing' ? 'wr-feedback' : 'cb-feedback';
+  const btnId  = type === 'speaking' ? 'sp-submit'   : type === 'writing' ? 'wr-submit'   : 'cb-submit';
+
+  document.getElementById(loadId).classList.add('on');
+  document.getElementById(fbId).classList.remove('on');
+  document.getElementById(btnId).disabled = true;
+  // Store for later submission
+  window._lastSubmitMeta = { type, s };
+
+  const typeInstr = type === 'combo'
+    ? `Compare both versions. Comment on register difference (spoken vs written). Give top improvements for each. Provide polished model for both.`
+    : type === 'speaking'
+      ? `Evaluate spoken English. Check for executive presence, natural spoken register, appropriate commenting/evaluating/summarizing language.`
+      : `Evaluate written English. Check structure, tone, formality level, vocabulary precision.`;
+
+  const prompt = `Scenario: ${s.name}\nContext: ${s.prompt}\nTask: ${s.task}\n\nStudent response:\n${userText}\n\nFeedback instructions: ${typeInstr}\n\nProvide feedback with exactly these ### sections:\n### Score\n[X/100] one-line verdict in Vietnamese\n### What works\n2 specific things (quote their phrases)\n### Language gaps\n2–3 improvements. Show: STUDENT WROTE: "..." → BETTER: "..."\n### Power phrases\n2 executive phrases to memorise\n### Model answer\nPolished 3–4 sentence version at executive level`;
+
+  try {
+    const result = await callClaude(SYSTEM_PROMPT, prompt);
+    renderFeedback(fbId, result, type + ' evaluation');
+    saveSession(type, s.name, result);
+  } catch(e) {
+    const msg = e.message === 'NO_KEY'
+      ? '<p style="color:#A32D2D;font-size:13px">⚠️ Chưa có API key. Vào <strong>Settings</strong> để nhập Anthropic API key.</p>'
+      : `<p style="color:#A32D2D;font-size:13px">Lỗi kết nối: ${e.message}</p>`;
+    document.getElementById(fbId).innerHTML = msg;
+    document.getElementById(fbId).classList.add('on');
+  }
+  document.getElementById(loadId).classList.remove('on');
+  document.getElementById(btnId).disabled = false;
+}
+
+/* ═══════════════════════════════════════════════
+   CHART TASKS
+═══════════════════════════════════════════════ */
+
+
+
+function mobileNav(el, screen) {
+  document.querySelectorAll('.mob-nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  // Mirror to desktop nav
+  const desktopItem = document.querySelector(`.nav-item[data-screen="${screen}"]`);
+  if (desktopItem) showScreen(desktopItem, screen);
+  else {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const sc = document.getElementById('screen-' + screen);
+    if (sc) sc.classList.add('active');
+    if (screen === 'progress') renderProgress();
+    if (screen === 'phrases') renderPhraseLib();
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   FEEDBACK RENDER
+═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════
+   SUBMIT TO GOOGLE SHEETS
+═══════════════════════════════════════════════ */
+async function submitToSheets(response, aiScore, scenarioId, scenarioName, type) {
+  if (!SHEETS_URL) return false;
+  try {
+    // no-cors: browser không đọc được response body — dùng fire-and-forget
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        action: 'submit',
+        student_name: localStorage.getItem('eec_student_name') || 'Student',
+        scenario_id: scenarioId,
+        scenario_name: scenarioName,
+        type: type,
+        response: response,
+        ai_score: aiScore,
+      })
+    });
+    return true; // no-cors không báo lỗi nếu thành công
+  } catch(e) {
+    return false;
+  }
+}
+
+function renderFeedback(id, text, label) {
+  const box = document.getElementById(id);
+  // Support both /100 and /10 from AI response
+  const m100 = text.match(/(\d{1,3})\/100/);
+  const m10  = text.match(/(\d{1,2})\/10(?!0)/);
+  let score, scoreLabel;
+  if (m100) {
+    score = parseInt(m100[1]);
+    scoreLabel = score + '/100';
+  } else if (m10) {
+    // convert old /10 to /100 for display
+    score = parseInt(m10[1]) * 10;
+    scoreLabel = score + '/100';
+  } else {
+    score = 65; scoreLabel = '65/100';
+  }
+  const cls = score >= 80 ? 'score-hi' : score >= 60 ? 'score-mid' : 'score-lo';
+
+  // Render sections properly to avoid unclosed div issues
+  const sections = text.split(/###\s+/).filter(s => s.trim());
+  let bodyHtml = '';
+  sections.forEach(sec => {
+    const lines = sec.split('\n');
+    const heading = lines[0].trim();
+    const content = lines.slice(1).join('\n').trim();
+    const contentHtml = content
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/STUDENT WROTE:/g, '<span class="fb-worse">✗ Student wrote:</span>')
+      .replace(/BETTER:/g, '<span class="fb-better">✓ Better:</span>')
+      .replace(/\n/g, '<br>');
+    bodyHtml += `<div class="fb-section"><div class="fb-section-label">${heading}</div><div>${contentHtml}</div></div>`;
+  });
+
+  box.innerHTML = `
+    <div class="fb-head">
+      <div class="score-ring ${cls}">${scoreLabel}</div>
+      <div><div class="fb-meta-title">AI Coach Feedback</div><div class="fb-meta-sub">${label}</div></div>
+    </div>
+    <div class="fb-body">${bodyHtml}</div>
+  `;
+  box.classList.add('on');
+  box.scrollIntoView({behavior:'smooth', block:'nearest'});
+
+  // Add "Nộp bài" button if Sheets connected
+  if (SHEETS_URL && window._lastSubmitMeta) {
+    const { type, s } = window._lastSubmitMeta;
+    const m100 = text.match(/(\d{1,3})\/100/);
+    const m10  = text.match(/(\d{1,2})\/10(?!0)/);
+    const score = m100 ? m100[1] + '/100' : m10 ? (parseInt(m10[1])*10) + '/100' : '';
+    const existing = box.querySelector('.nop-bai-btn');
+    if (!existing) {
+      const btn = document.createElement('button');
+      btn.className = 'btn btn-outline nop-bai-btn';
+      btn.style.cssText = 'margin-top:14px;width:100%;border-color:var(--green);color:var(--green)';
+      btn.textContent = '📤 Nộp bài cho giáo viên';
+      btn.onclick = async () => {
+        btn.textContent = 'Đang nộp...'; btn.disabled = true;
+        const taId = type==='speaking'?'sp-textarea':type==='writing'?'wr-textarea':'cb-sp-textarea';
+        const response = document.getElementById(taId)?.value || '';
+        const ok = await submitToSheets(response, score, s.id, s.name, type);
+        btn.textContent = ok ? '✓ Đã nộp bài thành công!' : '⚠️ Lỗi kết nối — thử lại';
+        btn.style.borderColor = ok ? 'var(--green)' : 'var(--red)';
+      };
+      box.appendChild(btn);
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   PROGRESS
+═══════════════════════════════════════════════ */
+function saveSession(type, name, feedback) {
+  const m100 = feedback.match(/(\d{1,3})\/100/);
+  const m10  = feedback.match(/(\d{1,2})\/10(?!0)/);
+  const score = m100 ? parseInt(m100[1]) : m10 ? parseInt(m10[1]) * 10 : null;
+  sessions.unshift({type, name, score, date: new Date().toLocaleDateString('vi-VN'), ts: Date.now()});
+  sessions = sessions.slice(0, 50);
+  localStorage.setItem('eec_v2_sessions', JSON.stringify(sessions));
+}
+
+function renderProgress() {
+  document.getElementById('st-sessions').textContent = sessions.length;
+  const days = new Set(sessions.map(s => s.date)).size;
+  document.getElementById('st-days').textContent = days;
+  const scored = sessions.filter(s => s.score);
+  const avg = scored.length ? Math.round(scored.reduce((a,s) => a + s.score, 0) / scored.length) : null;
+  document.getElementById('st-score').textContent = avg ? avg + '/100' : '—';
+
+  const body = document.getElementById('history-body');
+  if (!sessions.length) {
+    body.innerHTML = '<div class="empty-state">Chưa có buổi học nào. Bắt đầu luyện tập ngay!</div>';
+    return;
+  }
+  const icons = {speaking:'🎙', writing:'✍️', combo:'⚡', chart:'📊'};
+  body.innerHTML = sessions.slice(0, 15).map(s => `
+    <div class="history-item">
+      <span class="h-icon">${icons[s.type] || '📝'}</span>
+      <div>
+        <div class="h-name">${s.name}</div>
+        <div class="h-meta">${s.type} · ${s.date}</div>
+      </div>
+      ${s.score ? `<span class="h-score">${s.score}/100</span>` : ''}
+    </div>
+  `).join('');
+}
+
+function clearHistory() {
+  if (!confirm('Xoá toàn bộ lịch sử luyện tập?')) return;
+  sessions = [];
+  localStorage.removeItem('eec_v2_sessions');
+  renderProgress();
+}
+
+/* ═══════════════════════════════════════════════
+   PHRASE LIBRARY
+═══════════════════════════════════════════════ */
+function renderPhraseLib() {
+  const lib = document.getElementById('phrase-lib');
+  if (lib.children.length) return;
+  const cats = [
+    {key:'commenting',    label:'Commenting — Nhận xét',    cls:'ph-cat-c'},
+    {key:'evaluating',    label:'Evaluating — Đánh giá',    cls:'ph-cat-e'},
+    {key:'summary',       label:'Summarizing — Tổng kết',   cls:'ph-cat-s'},
+    {key:'meeting',       label:'Meeting Language',          cls:'ph-cat-m'},
+    {key:'hedging',       label:'Hedging Language',          cls:'ph-cat-c'},
+    {key:'cause_effect',  label:'Cause & Effect',            cls:'ph-cat-e'},
+    {key:'chart_language',label:'Chart Language',            cls:'ph-cat-s'},
+  ];
+  cats.forEach(cat => {
+    if (!PHRASES[cat.key] || !PHRASES[cat.key].length) return;
+    const col = document.createElement('div');
+    col.className = 'card';
+    col.innerHTML = `<div class="card-title">${cat.label}</div>` +
+      PHRASES[cat.key].map(p => `
+        <div class="phrase-lib-item">
+          <div class="ph-en">${p.en}</div>
+          <div class="ph-vi">${p.vi}</div>
+          <span class="ph-cat ${cat.cls}">${cat.key}</span>
+        </div>
+      `).join('');
+    lib.appendChild(col);
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   CHARTS (Chart.js)
+═══════════════════════════════════════════════ */
+const CHART_DEFAULTS = {
+  responsive: true, maintainAspectRatio: false,
+  animation: { duration: 600, easing: 'easeOutQuart' },
+  plugins: { legend: { display: false } }
+};
+
+
+/* ═══════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════
+   CHART WARM-UP — Integrated per session
+═══════════════════════════════════════════════ */
+let warmupChart = null; // active Chart.js instance
+
+// Task registry: store task text by id to avoid inline onclick escaping issues
+const WARMUP_TASK_REGISTRY = {};
+
+// Glossary: abbreviations used across all charts
+const CHART_GLOSSARY = {
+  line: [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu (quá hạn hoặc không thu hồi được)' },
+    { term: 'VCB', def: 'Vietcombank — ngân hàng TMCP Ngoại thương Việt Nam' },
+    { term: 'pp', def: 'Percentage points — điểm phần trăm (chênh lệch tuyệt đối)' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản (1bp = 0.01%)' },
+    { term: 'YoY', def: 'Year-on-Year — so cùng kỳ năm trước' },
+  ],
+  bar: [
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng (lãi thu / tài sản sinh lãi)' },
+    { term: 'TCB', def: 'Techcombank — Ngân hàng TMCP Kỹ thương' },
+    { term: 'VPB', def: 'VPBank — Ngân hàng TMCP Việt Nam Thịnh Vượng' },
+    { term: 'MBB', def: 'MBBank — Ngân hàng TMCP Quân đội' },
+    { term: 'ACB', def: 'Asia Commercial Bank — Ngân hàng TMCP Á Châu' },
+    { term: 'BIDV', def: 'Bank for Investment and Development of Vietnam — BIDV' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản (1bp = 0.01%)' },
+    { term: 'avg', def: 'Average — trung bình ngành/nhóm' },
+  ],
+  pie: [
+    { term: 'SME', def: 'Small & Medium Enterprise — doanh nghiệp vừa và nhỏ' },
+    { term: 'VND', def: 'Vietnamese Dong — đồng Việt Nam (đơn vị tiền tệ)' },
+    { term: 'Mortgage', def: 'Cho vay thế chấp bất động sản (mua nhà/đất)' },
+    { term: 'Corporate', def: 'Cho vay doanh nghiệp lớn (khối khách hàng doanh nghiệp)' },
+    { term: 'Auto', def: 'Cho vay mua ô tô' },
+    { term: 'YTD', def: 'Year-to-Date — lũy kế từ đầu năm đến nay' },
+  ],
+  dual: [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'Credit growth', def: 'Tăng trưởng tín dụng — tốc độ tăng dư nợ cho vay' },
+    { term: 'Dual-axis', def: 'Biểu đồ hai trục — hai thước đo khác nhau trên cùng đồ thị' },
+    { term: 'Lag', def: 'Độ trễ — tác động xuất hiện sau sự kiện một khoảng thời gian' },
+    { term: 'Vintage', def: 'Loan vintage — chất lượng khoản vay theo năm giải ngân' },
+    { term: 'pp', def: 'Percentage points — điểm phần trăm' },
+  ],
+};
+
+// Glossary for each scenario chart — keyed by scenario id
+const SCENARIO_GLOSSARY = {
+  'sp-01': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu (khoản vay quá hạn hoặc có nguy cơ mất vốn)' },
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng (lãi thu được trên tổng tài sản sinh lãi)' },
+    { term: 'CIR', def: 'Cost-to-Income Ratio — tỷ lệ chi phí/thu nhập (thấp hơn = hiệu quả hơn)' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản (100bp = 1%)' },
+    { term: 'YoY', def: 'Year-on-Year — so sánh cùng kỳ năm trước' },
+    { term: 'Q3', def: 'Third Quarter — quý 3 (tháng 7–9)' },
+  ],
+  'sp-02': [
+    { term: 'KPI', def: 'Key Performance Indicator — chỉ số đánh giá hiệu suất cốt lõi' },
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'SLA', def: 'Service Level Agreement — cam kết mức độ dịch vụ' },
+    { term: 'YoY', def: 'Year-on-Year — so sánh cùng kỳ năm trước' },
+    { term: 'Target', def: 'Mục tiêu đặt ra — vạch chuẩn để đánh giá kết quả thực tế' },
+  ],
+  'sp-03': [
+    { term: 'DSCR', def: 'Debt Service Coverage Ratio — tỷ lệ khả năng trả nợ (DSCR < 1 = không đủ dòng tiền)' },
+    { term: 'Covenant', def: 'Điều kiện ràng buộc trong hợp đồng tín dụng (nếu vi phạm → ngân hàng có quyền xử lý)' },
+    { term: 'Watch-list', def: 'Danh sách theo dõi — khách hàng có dấu hiệu rủi ro tín dụng tăng cao' },
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'Impairment', def: 'Suy giảm giá trị tài sản — ngân hàng phải trích lập dự phòng' },
+    { term: 'Provision', def: 'Dự phòng rủi ro — khoản tiền ngân hàng dành để bù đắp tổn thất tiềm ẩn' },
+  ],
+  'sp-04': [
+    { term: 'SME', def: 'Small & Medium Enterprise — doanh nghiệp vừa và nhỏ' },
+    { term: 'ROE', def: 'Return on Equity — lợi nhuận trên vốn chủ sở hữu' },
+    { term: 'Infrastructure', def: 'Cơ sở hạ tầng — hệ thống, công nghệ, nhân lực cần thiết để vận hành' },
+    { term: 'Corporate', def: 'Khối khách hàng doanh nghiệp lớn (corporate banking)' },
+    { term: 'Deepening', def: 'Khai thác sâu hơn — tăng tỷ lệ sản phẩm/dịch vụ trên mỗi khách hàng hiện có' },
+  ],
+  'sp-05': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng' },
+    { term: 'VCB', def: 'Vietcombank — Ngân hàng TMCP Ngoại thương Việt Nam' },
+    { term: 'TCB', def: 'Techcombank — Ngân hàng TMCP Kỹ thương' },
+    { term: 'Sector', def: 'Ngành / toàn bộ hệ thống ngân hàng (để so sánh benchmark)' },
+    { term: 'Mortgage', def: 'Cho vay mua nhà/đất có thế chấp bất động sản' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản (100bp = 1%)' },
+    { term: 'Concentration risk', def: 'Rủi ro tập trung — dư nợ quá lớn vào một phân khúc/ngành' },
+  ],
+  'sp-06': [
+    { term: 'Register', def: 'Văn phong / ngữ điệu phù hợp theo ngữ cảnh (board vs email vs speaking)' },
+    { term: 'Fluency', def: 'Độ lưu loát — nói/viết tự nhiên, ít do dự, không cần dừng lại tìm từ' },
+    { term: 'Closure', def: 'Kết thúc bài phát biểu/email đúng cách — tóm tắt + hành động tiếp theo' },
+    { term: 'Structure', def: 'Cấu trúc bài — mạch lạc, logic, dễ theo dõi' },
+  ],
+  'wr-01': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng' },
+    { term: 'CIR', def: 'Cost-to-Income Ratio — tỷ lệ chi phí/thu nhập' },
+    { term: 'Q3', def: 'Third Quarter — quý 3 (tháng 7–9)' },
+    { term: 'YoY', def: 'Year-on-Year — so sánh cùng kỳ năm trước' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản (100bp = 1%)' },
+  ],
+  'wr-02': [
+    { term: 'AML', def: 'Anti-Money Laundering — phòng chống rửa tiền (quy trình bắt buộc theo quy định)' },
+    { term: 'KYC', def: "Know Your Customer — định danh và xác minh khách hàng (quy trình tuân thủ)" },
+    { term: 'RM', def: 'Relationship Manager — cán bộ quản lý quan hệ khách hàng' },
+    { term: 'VND', def: 'Vietnamese Dong — đồng Việt Nam' },
+    { term: 'Compliance', def: 'Tuân thủ — đảm bảo thực hiện đúng quy định, quy trình nội bộ và pháp luật' },
+    { term: 'On-Time %', def: 'Tỷ lệ hoàn thành đúng hạn — chỉ số đo lường tuân thủ quy trình' },
+  ],
+  'wr-03': [
+    { term: 'AML', def: 'Anti-Money Laundering — phòng chống rửa tiền' },
+    { term: 'KYC', def: "Know Your Customer — xác minh danh tính khách hàng" },
+    { term: 'RM', def: 'Relationship Manager — cán bộ quản lý khách hàng' },
+    { term: 'VND B', def: 'VND tỷ đồng — đơn vị tính doanh thu (1B VND = 1 tỷ đồng)' },
+    { term: 'Target', def: 'Chỉ tiêu — mục tiêu kế hoạch được giao' },
+  ],
+  'wr-04': [
+    { term: 'Ba2', def: 'Moody\'s rating Ba2 — hạng tín nhiệm trung bình, có yếu tố đầu cơ' },
+    { term: 'B1', def: 'Moody\'s rating B1 — hạng tín nhiệm dưới mức đầu tư (speculative)' },
+    { term: 'B2', def: 'Moody\'s rating B2 — hạng tín nhiệm rủi ro cao hơn B1' },
+    { term: 'Counterparty', def: 'Đối tác/bên đối ứng — ngân hàng/doanh nghiệp mà ta có hợp đồng tín dụng' },
+    { term: 'Downgrade', def: 'Hạ bậc tín nhiệm — tổ chức xếp hạng đánh giá rủi ro vỡ nợ tăng cao' },
+    { term: 'Outlook', def: 'Triển vọng — dự báo chiều hướng thay đổi hạng tín nhiệm trong tương lai gần' },
+    { term: 'Alert', def: 'Cảnh báo — tín hiệu kích hoạt quy trình xem xét rủi ro khẩn cấp' },
+  ],
+  'wr-05': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng' },
+    { term: 'VCB', def: 'Vietcombank' },
+    { term: 'TCB', def: 'Techcombank' },
+    { term: 'Mortgage', def: 'Cho vay thế chấp bất động sản' },
+    { term: 'bp', def: 'Basis points — điểm cơ bản' },
+    { term: 'Board report', def: 'Báo cáo hội đồng quản trị — văn bản chính thức trình HĐQT' },
+    { term: 'Concentration risk', def: 'Rủi ro tập trung danh mục' },
+  ],
+  'wr-06': [
+    { term: 'Register', def: 'Văn phong — mức độ trang trọng phù hợp với người đọc và mục đích' },
+    { term: 'Format', def: 'Định dạng — cách trình bày (tiêu đề, đoạn văn, gạch đầu dòng…)' },
+    { term: 'Recommendation', def: 'Khuyến nghị — đề xuất hành động cụ thể dựa trên phân tích' },
+  ],
+  'cb-01': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'CIR', def: 'Cost-to-Income Ratio — tỷ lệ chi phí/thu nhập' },
+    { term: 'Provision Coverage', def: 'Tỷ lệ bao phủ dự phòng — dự phòng / tổng nợ xấu (cao hơn = an toàn hơn)' },
+    { term: 'Watch-list', def: 'Danh sách theo dõi rủi ro — khách hàng cần giám sát đặc biệt' },
+    { term: 'H1', def: 'First Half — 6 tháng đầu năm (January–June)' },
+    { term: 'YoY', def: 'Year-on-Year — so cùng kỳ năm trước' },
+  ],
+  'cb-02': [
+    { term: 'NPL', def: 'Non-Performing Loan — nợ xấu' },
+    { term: 'NIM', def: 'Net Interest Margin — biên lãi ròng' },
+    { term: 'CIR', def: 'Cost-to-Income Ratio — tỷ lệ chi phí/thu nhập' },
+    { term: 'M&A', def: 'Mergers & Acquisitions — mua bán và sáp nhập doanh nghiệp' },
+    { term: 'Due diligence', def: 'Thẩm định — quá trình kiểm tra kỹ lưỡng trước khi quyết định mua/đầu tư' },
+    { term: 'Synergy', def: 'Hiệu ứng cộng hưởng — lợi ích tạo ra khi 2 tổ chức kết hợp vượt trội so với hoạt động riêng lẻ' },
+    { term: 'Exclusivity', def: 'Quyền độc quyền đàm phán — thỏa thuận không đàm phán với bên thứ 3 trong thời gian nhất định' },
+  ],
+  'cb-03': [
+    { term: 'SBV', def: 'State Bank of Vietnam — Ngân hàng Nhà nước Việt Nam' },
+    { term: 'MTM', def: 'Mark-to-Market — định giá theo thị trường tại thời điểm hiện tại' },
+    { term: 'VaR', def: 'Value at Risk — giá trị rủi ro tối đa trong điều kiện bình thường (theo xác suất)' },
+    { term: 'Bond', def: 'Trái phiếu — công cụ nợ được giao dịch trên thị trường' },
+    { term: 'Threshold', def: 'Ngưỡng giới hạn — mức tối đa được phép trước khi kích hoạt cảnh báo rủi ro' },
+    { term: 'VND B', def: 'VND tỷ đồng — đơn vị tính tổn thất (1B = 1 tỷ đồng)' },
+  ],
+};
+
+function buildScenarioGlossaryHTML(scenarioId) {
+  const terms = SCENARIO_GLOSSARY[scenarioId];
+  if (!terms || !terms.length) return '';
+  const tags = terms.map(g =>
+    `<div class="glossary-tag" title="${g.def}">
+      <span class="g-term">${g.term}</span><span class="g-sep">·</span><span class="g-def">${g.def}</span>
+    </div>`).join('');
+  return `<div class="scenario-glossary">
+    <div class="scenario-glossary-title">📖 Thuật ngữ trong biểu đồ</div>
+    <div class="scenario-glossary-grid">${tags}</div>
+  </div>`;
+}
+
+const WARMUP_CHART_LABELS = {
+  line: { title:'NPL Ratio — VCB vs Industry (2019–2024)', subtitle:'% of total loans · non-performing', legend:['Vietcombank (VCB)','Industry Average'] },
+  bar:  { title:'Net Interest Margin (NIM) by Bank — Q3 2024', subtitle:'% · sorted by ownership', legend:['State-owned','Private'] },
+  pie:  { title:'Loan Portfolio Breakdown 2024', subtitle:'By segment · VND 285,000B total', legend:['Mortgage','Corporate','SME','Auto','Personal','Other'] },
+  dual: { title:'Credit Growth vs NPL Ratio — 2020–2024', subtitle:'Dual-axis · bars = credit growth (L) · line = NPL % (R)', legend:['Credit Growth %','NPL Ratio %'] },
+};
+
+function renderWarmupPanel(container, scenario) {
+  if (!scenario.warmup) return;
+  const wu = scenario.warmup;
+  const tasks = CHART_TASKS_FALLBACK[wu.chartType] || [];
+  const task = tasks[wu.taskIdx];
+  if (!task) return;
+
+  const levelCls = task.level.toLowerCase().includes('ielts') ? 'ielts'
+    : task.level.toLowerCase().includes('analytical') ? 'analytical' : 'board';
+  const levelLabel = task.level;
+  const info = WARMUP_CHART_LABELS[wu.chartType];
+  const canvasId = 'warmup-canvas-' + wu.chartType;
+  const panelId  = 'warmup-panel-' + scenario.id;
+  const fbId     = 'warmup-fb-' + scenario.id;
+  const taId     = 'warmup-ta-' + scenario.id;
+  const registryKey = 'wu-' + scenario.id;
+
+  // Store task text in registry to avoid inline onclick escaping issues
+  WARMUP_TASK_REGISTRY[registryKey] = { taskText: task.task, chartType: wu.chartType };
+
+  // Build glossary HTML for this chart type
+  const glossaryTerms = CHART_GLOSSARY[wu.chartType] || [];
+  const glossaryHTML = glossaryTerms.length ? `
+    <div class="warmup-glossary">
+      <div class="warmup-glossary-title">📖 Thuật ngữ trong biểu đồ</div>
+      <div class="warmup-glossary-grid">
+        ${glossaryTerms.map(g => `
+          <div class="glossary-tag" title="${g.def}">
+            <span class="g-term">${g.term}</span><span class="g-sep">·</span><span class="g-def">${g.def}</span>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  const html = `
+    <div class="warmup-panel" id="${panelId}">
+      <div class="warmup-header">
+        <span class="warmup-badge">🌅 Chart Warm-up</span>
+        <span class="warmup-title">${info.title}</span>
+        <span class="warmup-level warmup-level-${levelCls}">${levelLabel}</span>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin:-6px 0 10px">${info.subtitle}</p>
+      <div class="warmup-chart-wrap"><canvas id="${canvasId}"></canvas></div>
+      ${glossaryHTML}
+      <div class="warmup-task-box">
+        <div class="warmup-task-label">📝 Your task</div>
+        <div class="warmup-task-text">${task.task}</div>
+      </div>
+      <textarea class="warmup-textarea" id="${taId}" rows="3"
+        placeholder="Write your chart commentary here — 3–4 sentences. No preparation needed."></textarea>
+      <div class="warmup-btn-row">
+        <button class="btn btn-gold" style="flex:1;padding:8px 14px;font-size:12px"
+          onclick="submitWarmup('${registryKey}','${taId}','${fbId}')">
+          ✨ Get Feedback
+        </button>
+        <button class="btn btn-outline" style="padding:8px 14px;font-size:12px"
+          onclick="skipWarmup('${panelId}')">
+          Skip →
+        </button>
+      </div>
+      <div class="warmup-feedback" id="${fbId}"></div>
+    </div>`;
+
+  container.innerHTML = html;
+
+  // Draw the chart after DOM update
+  setTimeout(() => drawWarmupChart(canvasId, wu.chartType), 60);
+}
+
+function skipWarmup(panelId) {
+  const el = document.getElementById(panelId);
+  if (el) {
+    el.style.opacity = '0.4';
+    el.style.pointerEvents = 'none';
+    el.querySelector('textarea') && (el.querySelector('textarea').disabled = true);
+  }
+}
+
+async function submitWarmup(registryKey, taId, fbId) {
+  const reg = WARMUP_TASK_REGISTRY[registryKey];
+  if (!reg) { console.error('Warmup task not found in registry:', registryKey); return; }
+  const { taskText, chartType } = reg;
+
+  const text = document.getElementById(taId)?.value?.trim();
+  if (!text) {
+    const fb = document.getElementById(fbId);
+    fb.innerHTML = '<div style="color:#A32D2D;font-size:12px;padding:6px 0">⚠️ Vui lòng viết nhận xét trước khi nộp.</div>';
+    fb.classList.add('on');
+    return;
+  }
+  const fb = document.getElementById(fbId);
+  fb.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:8px 0">⏳ Đang phân tích bài viết của bạn…</div>';
+  fb.classList.add('on');
+
+  const sys = 'You are an executive English coach for chart commentary. Students are Vietnamese banking professionals. Give direct, specific feedback. Explain in Vietnamese, examples in English.';
+  const chartDesc = CHART_DATA_DESC[chartType] || '';
+  const prompt = `Chart data: ${chartDesc}\nTask: "${taskText}"\n\nStudent response: "${text}"\n\nGive concise feedback with exactly these sections (use ### headers):\n### Score\n[X/100] — one-line verdict in Vietnamese\n### What works\n1 specific strength (quote their phrase in English)\n### Improve this\n1–2 improvements using this format:\nSTUDENT WROTE: "..." → BETTER: "..."\nExplain why in Vietnamese.\n### Power phrase\n1 executive phrase to remember — English phrase + Vietnamese meaning`;
+
+  try {
+    const result = await callClaude(sys, prompt);
+    // Parse score /100
+    const m100 = result.match(/(\d{1,3})\/100/);
+    const score = m100 ? parseInt(m100[1]) : 65;
+    const cls = score >= 80 ? 'score-hi' : score >= 60 ? 'score-mid' : 'score-lo';
+
+    // Render sections properly
+    const sections = result.split(/###\s+/).filter(s => s.trim());
+    let bodyHtml = '';
+    sections.forEach(sec => {
+      const lines = sec.split('\n');
+      const heading = lines[0].trim();
+      const content = lines.slice(1).join('\n').trim();
+      const contentHtml = content
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/STUDENT WROTE:/g, '<span style="color:#A32D2D;font-weight:500">✗ Student wrote:</span>')
+        .replace(/BETTER:/g, '<span style="color:#0F6E56;font-weight:500">✓ Better:</span>')
+        .replace(/\n/g, '<br>');
+      bodyHtml += `<div style="margin-bottom:12px">
+        <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:5px">${heading}</div>
+        <div style="font-size:12.5px;line-height:1.75;color:var(--slate)">${contentHtml}</div>
+      </div>`;
+    });
+
+    fb.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)">
+        <div class="score-ring ${cls}" style="width:46px;height:46px;font-size:14px;font-weight:700;flex-shrink:0">${score}/100</div>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--navy)">AI Coach Feedback</div>
+          <div style="font-size:11px;color:var(--muted)">Chart warm-up · ${chartType} chart</div>
+        </div>
+      </div>
+      <div>${bodyHtml}</div>`;
+    saveSession('chart', chartType + ' warm-up', result);
+  } catch(e) {
+    fb.innerHTML = `<div style="color:#A32D2D;font-size:12px;padding:8px;background:#FCEBEB;border-radius:6px;border:1px solid #E24B4A">
+      ⚠️ <strong>Lỗi:</strong> ${e.message}
+    </div>`;
+  }
+}
+
+function drawWarmupChart(canvasId, type) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  if (warmupChart) { try { warmupChart.destroy(); } catch(e){} warmupChart = null; }
+
+  const defaults = {
+    responsive:true, maintainAspectRatio:false,
+    animation:{duration:500},
+    plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+  };
+
+  if (type === 'line') {
+    warmupChart = new Chart(canvas, { type:'line', data:{
+      labels:['2019','2020','2021','2022','2023','2024'],
+      datasets:[
+        {label:'VCB',data:[1.6,1.4,1.2,1.9,2.4,2.8],borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,0.08)',pointBackgroundColor:'#185FA5',pointRadius:4,tension:.4,fill:true,borderWidth:2.5},
+        {label:'Industry',data:[2.0,2.1,1.8,2.5,3.1,2.9],borderColor:'#D85A30',borderDash:[5,3],pointBackgroundColor:'#D85A30',tension:.4,fill:false,pointRadius:3,borderWidth:2},
+      ]}, options:{...defaults,scales:{y:{min:0,max:4,ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'rgba(0,0,0,0.05)'}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  } else if (type === 'bar') {
+    warmupChart = new Chart(canvas, { type:'bar', data:{
+      labels:['VCB','BIDV','Agribank','TCB','VPB','MBB','ACB'],
+      datasets:[{data:[3.4,3.1,2.9,4.9,4.5,4.2,3.8],backgroundColor:['#185FA5','#185FA5','#185FA5','#1D9E75','#1D9E75','#1D9E75','#1D9E75'],borderRadius:3,barPercentage:.65}]
+    }, options:{...defaults,indexAxis:'y',scales:{x:{min:0,max:6,ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'rgba(0,0,0,0.05)'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  } else if (type === 'pie') {
+    const pieData=[38,25,18,9,6,4];
+    const pieColors=['#185FA5','#1D9E75','#D85A30','#BA7517','#534AB7','#888780'];
+    warmupChart = new Chart(canvas, { type:'doughnut', data:{
+      labels:['Mortgage','Corporate','SME','Auto','Personal','Other'],
+      datasets:[{data:pieData,backgroundColor:pieColors,borderWidth:3,borderColor:'#fff',hoverOffset:5}]
+    }, options:{...defaults,cutout:'55%',plugins:{legend:{display:true,position:'right',labels:{font:{size:10},boxWidth:10,padding:8}}}}});
+  } else if (type === 'dual') {
+    warmupChart = new Chart(canvas, { type:'bar', data:{
+      labels:['2020','2021','2022','2023','2024'],
+      datasets:[
+        {type:'bar',label:'Credit Growth %',data:[10.4,13.5,14.8,10.1,14.2],backgroundColor:'rgba(24,95,165,0.55)',borderRadius:3,yAxisID:'y'},
+        {type:'line',label:'NPL %',data:[1.4,1.2,1.5,2.1,2.8],borderColor:'#D85A30',backgroundColor:'rgba(216,90,48,0.08)',pointBackgroundColor:'#D85A30',pointRadius:5,tension:.35,fill:true,borderWidth:2.5,yAxisID:'y2'},
+      ]}, options:{...defaults,scales:{y:{position:'left',min:0,max:20,ticks:{callback:v=>v+'%',font:{size:10}},grid:{color:'rgba(0,0,0,0.05)'}},y2:{position:'right',min:0,max:5,ticks:{callback:v=>v+'%',font:{size:10}},grid:{display:false}},x:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  }
+}
+
+async function boot() {
+  await loadData();
+  ['speaking','writing','combo'].forEach(renderScenarios);
+  fetchUnlockConfig();
+  document.getElementById('api-status-text').textContent = 'Đang kết nối...';
+}
+boot();
+</script>
+</body>
+</html>
