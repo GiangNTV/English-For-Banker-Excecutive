@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "module": "Chart Commentary Tasks",
+    "types": ["line", "bar", "pie", "dual"],
+    "levels": ["ielts", "analytical", "board"]
+  },
+  "line": [
+    {
+      "id": "chart-line-1", "week": 1, "level": "IELTS Task 1",
+      "task": "Describe the overall trend of VCB's NPL ratio from 2019 to 2024. Highlight the most significant change and compare it to the industry average.",
+      "hint": "Start with an overview sentence (no specific numbers). Then describe the main trend, the turning point, and compare to industry."
+    },
+    {
+      "id": "chart-line-2", "week": 4, "level": "Analytical",
+      "task": "Identify the year with the widest gap between VCB and the industry average. What might explain this divergence? What does it suggest about VCB's credit strategy?",
+      "hint": "Observation → Cause hypothesis → Implication. Use 'suggesting that…' to move from description to analysis."
+    },
+    {
+      "id": "chart-line-3", "week": 9, "level": "Board-level",
+      "task": "Summarise the NPL chart in 3–4 sentences as if presenting to a credit risk committee. Include one implication for the bank's provisioning strategy.",
+      "hint": "3–4 sentences max. No filler. End with a specific recommendation or action."
+    }
+  ],
+  "bar": [
+    {
+      "id": "chart-bar-1", "week": 2, "level": "IELTS Task 1",
+      "task": "Compare the NIM figures across all banks. Group your observations by ownership type (state-owned vs private) and draw one conclusion about the sector.",
+      "hint": "Use 'accounts for', 'is followed by', 'in contrast'. One clear concluding sentence."
+    },
+    {
+      "id": "chart-bar-2", "week": 5, "level": "Analytical",
+      "task": "Identify the outlier in this NIM chart. What does a significantly higher NIM suggest about that bank's pricing strategy or risk appetite? Is it sustainable?",
+      "hint": "Name the outlier. Give a cause hypothesis. Then question sustainability — this is the analytical layer."
+    },
+    {
+      "id": "chart-bar-3", "week": 10, "level": "Board-level",
+      "task": "Write a 3-sentence executive commentary on NIM dispersion across the sector. Include a strategic implication for a bank considering entering the retail segment.",
+      "hint": "3 sentences: (1) key observation, (2) what it means, (3) strategic implication. No hedging at board level."
+    }
+  ],
+  "pie": [
+    {
+      "id": "chart-pie-1", "week": 3, "level": "IELTS Task 1",
+      "task": "Describe the loan portfolio composition. Identify the dominant segment and comment on any notably small or large segments compared to sector norms.",
+      "hint": "Overview first (no numbers). Then: dominant segment, secondary segments, notable gaps."
+    },
+    {
+      "id": "chart-pie-2", "week": 6, "level": "Analytical",
+      "task": "What does the portfolio composition suggest about this bank's strategic priorities? Identify at least one concentration risk and explain the potential consequence.",
+      "hint": "Move beyond description: 'The 38% mortgage concentration suggests… which creates exposure to…'"
+    },
+    {
+      "id": "chart-pie-3", "week": 11, "level": "Board-level",
+      "task": "Summarise this portfolio breakdown in 2–3 sentences suitable for a Risk Committee report. Include a recommendation on one segment that warrants closer monitoring.",
+      "hint": "Risk Committee language: 'warrants monitoring', 'concentration risk', 'recommend a review of…'"
+    }
+  ],
+  "dual": [
+    {
+      "id": "chart-dual-1", "week": 4, "level": "IELTS Task 1",
+      "task": "Describe the relationship between credit growth and NPL ratio over the five-year period. Is there a visible pattern or lag between the two variables?",
+      "hint": "Describe each variable first, then describe the relationship. Use 'while', 'meanwhile', 'in contrast'."
+    },
+    {
+      "id": "chart-dual-2", "week": 7, "level": "Analytical",
+      "task": "2023–2024 shows rising NPL despite slowing credit growth. What does this suggest about loan vintage quality? What should management prioritise?",
+      "hint": "This is the credit quality lag concept. Name it. Explain why NPL lags. Give a concrete management recommendation."
+    },
+    {
+      "id": "chart-dual-3", "week": 12, "level": "Board-level",
+      "task": "Write a 4-sentence board-level commentary on the credit cycle shown in this chart. Include the credit quality lag concept and a forward-looking strategic recommendation.",
+      "hint": "4 sentences: observation, lag explanation, 2026 projection, recommendation. No filler words."
+    }
+  ]
+}

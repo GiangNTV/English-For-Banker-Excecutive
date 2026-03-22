@@ -1,0 +1,196 @@
+{
+  "commenting": [
+    {
+      "en": "What stands out here is…",
+      "vi": "Điều nổi bật ở đây là…"
+    },
+    {
+      "en": "The figures suggest that…",
+      "vi": "Số liệu cho thấy rằng…"
+    },
+    {
+      "en": "Notably,",
+      "vi": "Đáng chú ý,"
+    },
+    {
+      "en": "This is broadly in line with…",
+      "vi": "Điều này nhìn chung phù hợp với…"
+    },
+    {
+      "en": "The variance here warrants attention.",
+      "vi": "Mức chênh lệch này cần được chú ý."
+    },
+    {
+      "en": "This data points to…",
+      "vi": "Dữ liệu này cho thấy…"
+    },
+    {
+      "en": "A closer look at [X] reveals…",
+      "vi": "Nhìn kỹ hơn vào [X] cho thấy…"
+    },
+    {
+      "en": "The [X]pp [increase/deterioration] in…",
+      "vi": "Mức tăng/giảm [X] điểm phần trăm trong…"
+    }
+  ],
+  "evaluating": [
+    {
+      "en": "On balance,",
+      "vi": "Nhìn tổng thể, / Xét tổng quan,"
+    },
+    {
+      "en": "This falls short of [expectations/target/benchmark].",
+      "vi": "Điều này chưa đáp ứng [kỳ vọng/mục tiêu/tiêu chuẩn]."
+    },
+    {
+      "en": "The key issue here is…",
+      "vi": "Vấn đề cốt lõi ở đây là…"
+    },
+    {
+      "en": "To some extent, this reflects…",
+      "vi": "Ở một mức độ nhất định, điều này phản ánh…"
+    },
+    {
+      "en": "I would assess this as…",
+      "vi": "Tôi đánh giá đây là…"
+    },
+    {
+      "en": "The results present a mixed picture.",
+      "vi": "Kết quả phản ánh một bức tranh hỗn hợp."
+    },
+    {
+      "en": "[Achievement] is [positive], but [concern] cannot be overlooked.",
+      "vi": "[Thành tích] là [tốt], nhưng [lo ngại] không thể bỏ qua."
+    },
+    {
+      "en": "I would caution [us/the committee] against…",
+      "vi": "Tôi muốn cảnh báo [chúng ta/ủy ban] tránh…"
+    }
+  ],
+  "summary": [
+    {
+      "en": "To bring this together,",
+      "vi": "Để tổng hợp lại,"
+    },
+    {
+      "en": "The consensus seems to be…",
+      "vi": "Sự đồng thuận dường như là…"
+    },
+    {
+      "en": "Moving forward, the priority is…",
+      "vi": "Tiến về phía trước, ưu tiên là…"
+    },
+    {
+      "en": "In summary, we are [where we are] and [what needs to happen].",
+      "vi": "Tóm lại, chúng ta đang [vị trí hiện tại] và [điều cần làm]."
+    },
+    {
+      "en": "Let me close by noting that…",
+      "vi": "Cho phép tôi kết thúc bằng nhận xét rằng…"
+    },
+    {
+      "en": "Here is where I land:",
+      "vi": "Đây là kết luận của tôi:"
+    },
+    {
+      "en": "The bottom line is…",
+      "vi": "Điều cốt lõi là…"
+    }
+  ],
+  "meeting": [
+    {
+      "en": "I'd like to open the floor to [questions/discussion].",
+      "vi": "Tôi muốn mở rộng để [đặt câu hỏi/thảo luận]."
+    },
+    {
+      "en": "Let's come back to the central question:",
+      "vi": "Hãy quay lại câu hỏi cốt lõi:"
+    },
+    {
+      "en": "I hear the concern, and I want to address it directly.",
+      "vi": "Tôi hiểu mối lo ngại đó, và tôi muốn giải quyết nó trực tiếp."
+    },
+    {
+      "en": "For clarity, what we are deciding today is…",
+      "vi": "Để rõ ràng, điều chúng ta quyết định hôm nay là…"
+    },
+    {
+      "en": "I'd like to move us toward a conclusion.",
+      "vi": "Tôi muốn đưa chúng ta đến kết luận."
+    },
+    {
+      "en": "[Name] will own [deliverable], due by [date].",
+      "vi": "[Tên] sẽ chịu trách nhiệm [kết quả cụ thể], hạn [ngày]."
+    },
+    {
+      "en": "I recognise this is not a unanimous view, but…",
+      "vi": "Tôi nhận ra đây không phải là quan điểm nhất trí, nhưng…"
+    }
+  ],
+  "chart_language": [
+    {
+      "en": "The chart illustrates…",
+      "vi": "Biểu đồ minh họa…"
+    },
+    {
+      "en": "Overall, there is a clear [upward/downward] trend…",
+      "vi": "Nhìn chung, có xu hướng [tăng/giảm] rõ ràng…"
+    },
+    {
+      "en": "A [significant/notable/sharp] peak was recorded in [year/period].",
+      "vi": "Một đỉnh [đáng kể/nổi bật/đột ngột] được ghi nhận vào [năm/giai đoạn]."
+    },
+    {
+      "en": "The gap between [A] and [B] widened to [X] [units] in [year].",
+      "vi": "Khoảng cách giữa [A] và [B] mở rộng đến [X] [đơn vị] vào [năm]."
+    },
+    {
+      "en": "There is a notable correlation between [X] and [Y].",
+      "vi": "Có mối tương quan đáng chú ý giữa [X] và [Y]."
+    },
+    {
+      "en": "[Segment] accounts for the largest proportion at [X]%.",
+      "vi": "[Phân khúc] chiếm tỷ trọng lớn nhất ở mức [X]%."
+    },
+    {
+      "en": "The most striking [feature/aspect] is…",
+      "vi": "Đặc điểm/khía cạnh nổi bật nhất là…"
+    }
+  ],
+  "hedging": [
+    {
+      "en": "It appears that…",
+      "vi": "Có vẻ như…"
+    },
+    {
+      "en": "This may be attributable to…",
+      "vi": "Điều này có thể được quy cho… / Điều này có thể do…"
+    },
+    {
+      "en": "While [X], it is worth noting that [Y].",
+      "vi": "Trong khi [X], đáng chú ý rằng [Y]."
+    },
+    {
+      "en": "The data does not allow us to conclude that…",
+      "vi": "Dữ liệu không cho phép chúng ta kết luận rằng…"
+    }
+  ],
+  "cause_effect": [
+    {
+      "en": "[X] has resulted in [Y].",
+      "vi": "[X] đã dẫn đến [Y]."
+    },
+    {
+      "en": "[X] contributed to [Y].",
+      "vi": "[X] đóng góp vào [Y] / [X] góp phần tạo ra [Y]."
+    },
+    {
+      "en": "As a consequence,",
+      "vi": "Kết quả là, / Hệ quả là,"
+    },
+    {
+      "en": "This, in turn, [led to / created / exacerbated]…",
+      "vi": "Điều này, đến lượt nó, [dẫn đến / tạo ra / làm trầm trọng thêm]…"
+    }
+  ]
+}
